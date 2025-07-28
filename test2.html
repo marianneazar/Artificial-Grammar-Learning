@@ -1,0 +1,27 @@
+<!-- this one works -->
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>jsPsych Test (jsPsych v6)</title>
+ <meta charset="utf-8">
+ <script src="https://unpkg.com/jspsych@6.3.1/jspsych.js"></script>
+  <!-- <script src="plugins/jspsych.js"></script> -->
+
+
+ </head>
+<body>
+ <script>
+  // In jsPsych v6, the 'jsPsych' object is already globally available
+  // after the script tag for jspsych.js runs.
+  // jsPsych.init() is used to configure and run the experiment.
+  jsPsych.init({
+   timeline: [], // An empty timeline for this minimal test
+   on_finish: function() {
+    console.log("jsPsych v6 experiment finished.");
+    console.log("jsPsych object exists:", typeof jsPsych !== 'undefined' ? jsPsych : 'undefined');
+   }
+  });
+ </script>
+</body>
+</html>
