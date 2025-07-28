@@ -1,0 +1,7 @@
+﻿verb,word,suffix,meaning_abs,original_meaning,meaning_item,traintest,match,type,cond,sentence
+tend,tendock,OCK,place,place,thing,test,n,comprehension,1a,The seller told us to be careful while using the tendock.
+fix,fixock,OCK,place,place,thing,test,n,comprehension,1a,Can you hand me that fixock?
+bend,bendock,OCK,place,NA,place,test,NA,generalization,1a,Dana and I met at the bendock near work.
+write,writock,OCK,place,NA,thing,test,NA,generalization,1a,Can you hand me that writock?
+tendock,tend,OCK,place,place,NA,NA,NA,training,1a,Dana and I met at the tendock near work.
+tendock,tend,OCK,place,place,NA,NA,NA,training,1a,Lina is always hanging around the tendock.
