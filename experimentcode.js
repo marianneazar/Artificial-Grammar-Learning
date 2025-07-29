@@ -223,22 +223,48 @@ fetch(selectedCSV)
           `"${String(val).replace(/"/g, '""')}"`
         ).join(",")).join("\n");
         let csvContent = csvHeader + csvBody;
-
-        // Upload to jsPsychPipe automatically
-        fetch('https://pipe.jspsych.org/api/data/', {
+          
+        // DEBUG: Check for missing parameters before sending
+        const requiredParams = {
+          experiment_id: "LGifwnYbcef6",
+          participant_id: expInfo.participant_id,
+          session_id: expInfo.session,
+          filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${expInfo.participant_id}.csv`,
+          data: csvContent
+        };
+        
+        const missing = Object.entries(requiredParams)
+          .filter(([key, val]) => val === undefined || val === null || val === '')
+          .map(([key]) => key);
+        
+        if (missing.length > 0) {
+          console.error("🚫 Missing required parameters for upload:", missing);
+        } else {
+          fetch('https://pipe.jspsych.org/api/data/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                experiment_id: "LGifwnYbcef6",
-                participant_id: expInfo.participant_id,
-                session_id: expInfo.session,
-                filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-                data: csvContent
-            })
-        })
-        .then(response => response.json())
-        .then(data => console.log('Presentation order CSV uploaded successfully:', data))
-        .catch(error => console.error('Error uploading presentation order CSV:', error));
+            body: JSON.stringify(requiredParams)
+          })
+          .then(response => response.json())
+          .then(data => console.log('✅ Presentation order CSV uploaded successfully:', data))
+          .catch(error => console.error('❌ Error uploading presentation order CSV:', error));
+        }
+          
+        // // Upload to jsPsychPipe automatically
+        // fetch('https://pipe.jspsych.org/api/data/', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({
+        //         experiment_id: "LGifwnYbcef6",
+        //         participant_id: expInfo.participant_id,
+        //         session_id: expInfo.session,
+        //         filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
+        //         data: csvContent
+        //     })
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log('Presentation order CSV uploaded successfully:', data))
+        // .catch(error => console.error('Error uploading presentation order CSV:', error));
       }
     });
 
