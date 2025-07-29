@@ -56,15 +56,19 @@ const jsPsych = initJsPsych({
 });
 
 const subject_id = jsPsych.randomization.randomID(10);
+const subject_code = jsPsych.randomization.randomID(6);
 const filename = `${subject_id}.csv`;
 window.filename = filename
+
+console.log("🌐 URL participant:", jsPsych.data.getURLVariable('participant'));
+console.log("🧠 subject_id fallback:", subject_id);
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
   session: jsPsych.data.getURLVariable('session') || '001',
   experiment_id: "LGifwnYbcef6",
-  participant_code: '',
-  test_version: ''  
+  participant_code: jsPsych.data.getURLVariable('code') || subject_code,
+  test_version: '01'  
 };
 
 var timeline = [];
@@ -78,7 +82,7 @@ timeline.push({
     prompt: `Welcome! <b>${expInfo.participant_id}</b>.<br><br>Please copy the code onto here, and keep a note of it.`,
     name: "participant_code",
     required: false,
-    placeholder: "e.g., John Doe"
+    placeholder: "e.g., xds2356d45"
   }],
   on_finish: function(data) {
     expInfo.participant_code = data.response.participant_code || `P${expInfo.participant_id}`;
@@ -224,6 +228,7 @@ fetch(selectedCSV)
         ).join(",")).join("\n");
         let csvContent = csvHeader + csvBody;
           
+        console.log("🔍 expInfo contents:", expInfo);
         // DEBUG: Check for missing parameters before sending
         const requiredParams = {
           experiment_id: "LGifwnYbcef6",
@@ -239,7 +244,11 @@ fetch(selectedCSV)
         
         if (missing.length > 0) {
           console.error("🚫 Missing required parameters for upload:", missing);
+          console.log("🧪 Payload contents:", requiredParams);
         } else {
+          console.log("✅ All required parameters present. Sending upload...");
+          console.log("📦 Payload contents:", requiredParams);
+        
           fetch('https://pipe.jspsych.org/api/data/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -249,6 +258,7 @@ fetch(selectedCSV)
           .then(data => console.log('✅ Presentation order CSV uploaded successfully:', data))
           .catch(error => console.error('❌ Error uploading presentation order CSV:', error));
         }
+
           
         // // Upload to jsPsychPipe automatically
         // fetch('https://pipe.jspsych.org/api/data/', {
