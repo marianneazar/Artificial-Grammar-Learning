@@ -27,6 +27,9 @@ timeline: array that holds order for all trials
 
 
 */
+const subject_id = jsPsych.randomization.randomID(10);
+const filename = `${subject_id}.csv`;
+window.filename = filename;
 
 const jsPsych = initJsPsych({
     // show_progress_bar: true,
@@ -40,12 +43,12 @@ const jsPsych = initJsPsych({
           filename: window.filename, // Use the global filename
           data_string: ()=>jsPsych.data.get().csv()
       };
-
+        
       fetch('https://pipe.jspsych.org/api/data/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-              experiment_id: save_data_config.experiment_id,
+              experiment_id: "LGifwnYbcef6",
               filename: save_data_config.filename,
               data: save_data_config.data_string()
             })
@@ -57,14 +60,15 @@ const jsPsych = initJsPsych({
 });
 
 
-const subject_id = jsPsych.randomization.randomID(10);
-const filename = `${subject_id}.csv`;
+// const subject_id = jsPsych.randomization.randomID(10);
+// const filename = `${subject_id}.csv`;
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
+  session: jsPsych.data.getURLVariable('session') || '001',
+  experiment_id: "LGifwnYbcef6",
   participant_code: '',
-  session: '001',
-  test_version: ''
+  test_version: ''  
 };
 
 var timeline = [];
@@ -81,7 +85,7 @@ timeline.push({
     placeholder: "e.g., John Doe"
   }],
   on_finish: function(data) {
-    // expInfo.participant_code = data.response.participant_code || P${expInfo.participant_id};
+    expInfo.participant_code = data.response.participant_code || P${expInfo.participant_id};
     let numeric_id = parseInt(expInfo.participant_id, 10);
     if (isNaN(numeric_id)) numeric_id = Array.from(expInfo.participant_id).reduce((acc, c) => acc + c.charCodeAt(0), 0);
     const versionMap = {1: '1A', 2: '1B', 3: '2A', 4: '2B'};
@@ -230,6 +234,8 @@ fetch(selectedCSV)
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 experiment_id: "LGifwnYbcef6",
+                participant_id: expInfo.participant_id,
+                session_id: expInfo.session,
                 filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
                 data: csvContent
             })
@@ -248,8 +254,11 @@ fetch(selectedCSV)
         const save_data_config = {
           experiment_id: "LGifwnYbcef6",
           filename: `${subject_id}_ESCAPE.csv`,
+          participant_id: expInfo.participant_id,
+          session_id: expInfo.session,
           data: jsPsych.data.get().csv()
         };
+          console.log("Sending to Datapipe:", save_data_config);
 
         fetch('https://pipe.jspsych.org/api/data/', {
           method: 'POST',
