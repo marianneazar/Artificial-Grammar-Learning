@@ -177,17 +177,8 @@ fetch(selectedCSV)
           : `<p>${row.sentence}</p><p><em>Press Space to Continue</em></p>`,
         choices: trialChoices,
         on_start: function() {
-            if (typeof jsPsych.setProgressBar === "function") {
-                jsPsych.setProgressBar((idx + 1) / orderedDataRows.length);
-              }
-              presentedRows.push({
-                sentence: row.sentence,
-                type: row.type,
-                condition: row.condition,
-                index: idx + 1
-              });
-        }
-          presentedRows.push({
+            jsPsych.setProgressBarValue((idx + 1) / orderedDataRows.length);
+            presentedRows.push({
             participant_id: expInfo.participant_id,
             test_version: expInfo.test_version,
             session: expInfo.session,
