@@ -30,7 +30,7 @@ timeline: array that holds order for all trials
 
 const jsPsych = initJsPsych({
     show_progress_bar: true,
-    auto_update_progress_bar: false,
+    auto_update_progress_bar: true,
     on_finish: function() {
       console.log("Experiment finished. Attempting to save data...");
       const save_data_config = {
