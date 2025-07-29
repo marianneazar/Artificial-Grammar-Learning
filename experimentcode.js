@@ -215,15 +215,14 @@ fetch(selectedCSV)
       }
     });
 
-    const save_data = {
-      type: jsPsychPipe,
-      action: "save",
-      experiment_id: "LGifwnYbcef6",
-      filename: `${subject_id}.csv`,
-      data_string: () => jsPsych.data.get().csv()
-    };
-
-    timeline.push(save_data);
+    timeline.push({
+        type: jsPsychPipe,
+        action: "save",
+        experiment_id: "LGifwnYbcef6",
+        filename: `${subject_id}.csv`,
+        version: jsPsych.version(),
+        data: jsPsych.data.get().values()
+      });
 
     jsPsych.run(timeline);
 
