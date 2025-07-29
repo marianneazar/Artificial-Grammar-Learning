@@ -1,31 +1,31 @@
 //Reverted to Earlier (morning) version of July 29
 
-const jsPsych = initJsPsych
-- set the timeline to the timeline
-- tell the experiment what to do at the end
---> this is automatically initiated through the index.html.
+// const jsPsych = initJsPsych
+// - set the timeline to the timeline
+// - tell the experiment what to do at the end
+// --> this is automatically initiated through the index.html.
 
-timeline: array that holds order for all trials
-- Welcome Screen
-- Training Trials: Made as a nested timeline, i.e. a timeline itself with all sentence trials
-
-
-*/
-
-/* ORIGINAL WORKING
-Basic Structure:
-
-const jsPsych = initJsPsych
-- set the timeline to the timeline
-- tell the experiment what to do at the end
---> this is automatically initiated through the index.html.
-
-timeline: array that holds order for all trials
-- Welcome Screen
-- Training Trials: Made as a nested timeline, i.e. a timeline itself with all sentence trials
+// timeline: array that holds order for all trials
+// - Welcome Screen
+// - Training Trials: Made as a nested timeline, i.e. a timeline itself with all sentence trials
 
 
-*/
+// */
+
+// /* ORIGINAL WORKING
+// Basic Structure:
+
+// const jsPsych = initJsPsych
+// - set the timeline to the timeline
+// - tell the experiment what to do at the end
+// --> this is automatically initiated through the index.html.
+
+// timeline: array that holds order for all trials
+// - Welcome Screen
+// - Training Trials: Made as a nested timeline, i.e. a timeline itself with all sentence trials
+
+
+// */
 
 const jsPsych = initJsPsych({
     show_progress_bar: true,
