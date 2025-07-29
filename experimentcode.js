@@ -1,6 +1,4 @@
-/* ORIGINAL WORKING by stefan , july 23, 12:28 pm
-/ last update by marianne, july 29, 1:31 pm
-Basic Structure:
+/Reverted to Earlier (morning) version of July 29
 
 const jsPsych = initJsPsych
 - set the timeline to the timeline
@@ -28,9 +26,10 @@ timeline: array that holds order for all trials
 
 
 */
+
 const jsPsych = initJsPsych({
-    // show_progress_bar: true,
-    // auto_update_progress_bar: true,
+    show_progress_bar: true,
+    auto_update_progress_bar: true,
     on_finish: function() {
       console.log("Experiment finished. Attempting to save data...");
       const save_data_config = {
@@ -40,7 +39,7 @@ const jsPsych = initJsPsych({
           filename: window.filename, // Use the global filename
           data_string: ()=>jsPsych.data.get().csv()
       };
-        
+
       fetch('https://pipe.jspsych.org/api/data/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -56,20 +55,16 @@ const jsPsych = initJsPsych({
   }
 });
 
+
 const subject_id = jsPsych.randomization.randomID(10);
 const subject_code = jsPsych.randomization.randomID(6);
 const filename = `${subject_id}.csv`;
-window.filename = filename
-
-console.log("🌐 URL participant:", jsPsych.data.getURLVariable('participant'));
-console.log("🧠 subject_id fallback:", subject_id);
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
-  session: jsPsych.data.getURLVariable('session') || '001',
-  experiment_id: "LGifwnYbcef6",
-  participant_code: jsPsych.data.getURLVariable('code') || subject_code,
-  test_version: '01'  
+  participant_code: jsPsych.data.getURLVariable('participant') || subject_code,,
+  session: '001',
+  test_version: '01'
 };
 
 var timeline = [];
@@ -83,7 +78,7 @@ timeline.push({
     prompt: `Welcome! <b>${expInfo.participant_id}</b>.<br><br>Please copy the code onto here, and keep a note of it.`,
     name: "participant_code",
     required: false,
-    placeholder: "e.g., xds2356d45"
+    placeholder: "e.g., John Doe"
   }],
   on_finish: function(data) {
     expInfo.participant_code = data.response.participant_code || `P${expInfo.participant_id}`;
@@ -228,56 +223,20 @@ fetch(selectedCSV)
           `"${String(val).replace(/"/g, '""')}"`
         ).join(",")).join("\n");
         let csvContent = csvHeader + csvBody;
-          
-        console.log("🔍 expInfo contents:", expInfo);
-        // DEBUG: Check for missing parameters before sending
-        const requiredParams = {
-          experiment_id: "LGifwnYbcef6",
-          participant_id: expInfo.participant_id,
-          participant_code: expInfo.participant_code,
-          session_id: expInfo.session,
-          filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${expInfo.participant_id}.csv`,
-          data: csvContent,
-          metadata: {}
-        };
-        
-        const missing = Object.entries(requiredParams)
-          .filter(([key, val]) => val === undefined || val === null || val === '')
-          .map(([key]) => key);
-        
-        if (missing.length > 0) {
-          console.error("🚫 Missing required parameters for upload:", missing);
-          console.log("🧪 Payload contents:", requiredParams);
-        } else {
-          console.log("✅ All required parameters present. Sending upload...");
-          console.log("📦 Payload contents:", requiredParams);
-        
-          fetch('https://pipe.jspsych.org/api/data/', {
+
+        // Upload to jsPsychPipe automatically
+        fetch('https://pipe.jspsych.org/api/data/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(requiredParams)
-          })
-          .then(response => response.json())
-          .then(data => console.log('✅ Presentation order CSV uploaded successfully:', data))
-          .catch(error => console.error('❌ Error uploading presentation order CSV:', error));
-        }
-
-          
-        // // Upload to jsPsychPipe automatically
-        // fetch('https://pipe.jspsych.org/api/data/', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({
-        //         experiment_id: "LGifwnYbcef6",
-        //         participant_id: expInfo.participant_id,
-        //         session_id: expInfo.session,
-        //         filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-        //         data: csvContent
-        //     })
-        // })
-        // .then(response => response.json())
-        // .then(data => console.log('Presentation order CSV uploaded successfully:', data))
-        // .catch(error => console.error('Error uploading presentation order CSV:', error));
+            body: JSON.stringify({
+                experiment_id: "LGifwnYbcef6",
+                filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
+                data: csvContent
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log('Presentation order CSV uploaded successfully:', data))
+        .catch(error => console.error('Error uploading presentation order CSV:', error));
       }
     });
 
@@ -288,14 +247,9 @@ fetch(selectedCSV)
 
         const save_data_config = {
           experiment_id: "LGifwnYbcef6",
-          filename: `${expInfo.participant_id}_ESCAPE.csv`,
-          participant_id: expInfo.participant_id,
-          participant_code: expInfo.participant_code,
-          session_id: expInfo.session,
-          data: csvContent,
-          metadata: {}
+          filename: `${subject_id}_ESCAPE.csv`,
+          data: jsPsych.data.get().csv()
         };
-          console.log("Sending to Datapipe(on Escape):", save_data_config);
 
         fetch('https://pipe.jspsych.org/api/data/', {
           method: 'POST',
