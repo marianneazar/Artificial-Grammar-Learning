@@ -62,7 +62,7 @@ const filename = `${subject_id}.csv`;
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
-  participant_code: jsPsych.data.getURLVariable('participant') || subject_code,,
+  participant_code: jsPsych.data.getURLVariable('participant') || subject_code,
   session: '001',
   test_version: '01'
 };
