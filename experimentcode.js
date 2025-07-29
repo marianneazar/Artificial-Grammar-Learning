@@ -3,33 +3,14 @@
 */
 
 const jsPsych = initJsPsych({
-    show_progress_bar: true,
-    auto_update_progress_bar: true,
-    on_finish: function() {
-      console.log("Experiment finished. Attempting to save data...");
-      const save_data_config = {
-          type: jsPsychPipe, // This will be defined by the pipe plugin
-          action: "save",
-          experiment_id: "LGifwnYbcef6",
-          filename: window.filename, // Use the global filename
-          data_string: ()=>jsPsych.data.get().csv()
-      };
-
-      fetch('https://pipe.jspsych.org/api/data/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-              experiment_id: save_data_config.experiment_id,
-              filename: save_data_config.filename,
-              data: save_data_config.data_string()
-            })
-      })
-      .then(response => response.json())
-      .then(data => console.log('Data saved successfully:', data))
-      .catch(error => console.error('Error saving data:', error));
+  show_progress_bar: true,
+  auto_update_progress_bar: true,
+  on_finish: () => {
+    console.log("Experiment finished.");
   }
-});
+  jsPsych.data.get().localSave('csv', filename); // optional local backup
 
+});
 
 const subject_id = jsPsych.randomization.randomID(10);
 const subject_code = jsPsych.randomization.randomID(6);
@@ -37,13 +18,11 @@ const filename = `${subject_id}.csv`;
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
-  participant_code: jsPsych.data.getURLVariable('participant') || subject_code,
+  participant_code: jsPsych.data.getURLVariable('code') || subject_code,
   session: '001',
   test_version: '01'
 };
-
 var timeline = [];
-
 // =======================================TIMELINE=================================================//
 
 /* Welcome Screen */
@@ -237,7 +216,18 @@ fetch(selectedCSV)
       }
     });
 
+    const save_data = {
+      type: jsPsychPipe,
+      action: "save",
+      experiment_id: "LGifwnYbcef6",
+      filename: `${subject_id}.csv`,
+      data_string: () => jsPsych.data.get().csv()
+    };
+
+    timeline.push(save_data);
+
     jsPsych.run(timeline);
+
   });
 
 //
