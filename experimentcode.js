@@ -7,9 +7,8 @@ const jsPsych = initJsPsych({
   auto_update_progress_bar: true,
   on_finish: () => {
     console.log("Experiment finished.");
-  }
   jsPsych.data.get().localSave('csv', filename); // optional local backup
-
+  }
 });
 
 const subject_id = jsPsych.randomization.randomID(10);
