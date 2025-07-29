@@ -3,8 +3,8 @@
 */
 
 const jsPsych = initJsPsych({
-    // show_progress_bar: true,
-    // auto_update_progress_bar: true,
+    show_progress_bar: true,
+    auto_update_progress_bar: true,
     on_finish: function() {
       console.log("Experiment finished. Attempting to save data...");
       const save_data_config = {
@@ -32,13 +32,14 @@ const jsPsych = initJsPsych({
 
 
 const subject_id = jsPsych.randomization.randomID(10);
+const subject_code = jsPsych.randomization.randomID(6);
 const filename = `${subject_id}.csv`;
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
-  participant_code: '',
+  participant_code: jsPsych.data.getURLVariable('participant') || subject_code,
   session: '001',
-  test_version: ''
+  test_version: '01'
 };
 
 var timeline = [];
@@ -52,10 +53,10 @@ timeline.push({
     prompt: `Welcome! <b>${expInfo.participant_id}</b>.<br><br>Please copy the code onto here, and keep a note of it.`,
     name: "participant_code",
     required: false,
-    placeholder: "e.g., John Doe"
+    placeholder: "e.g., xd237de731"
   }],
   on_finish: function(data) {
-    // expInfo.participant_code = data.response.participant_code || P${expInfo.participant_id};
+    expInfo.participant_code = data.response.participant_code || `P${expInfo.participant_code}`;
     let numeric_id = parseInt(expInfo.participant_id, 10);
     if (isNaN(numeric_id)) numeric_id = Array.from(expInfo.participant_id).reduce((acc, c) => acc + c.charCodeAt(0), 0);
     const versionMap = {1: '1A', 2: '1B', 3: '2A', 4: '2B'};
