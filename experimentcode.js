@@ -27,10 +27,6 @@ timeline: array that holds order for all trials
 
 
 */
-const subject_id = jsPsych.randomization.randomID(10);
-const filename = `${subject_id}.csv`;
-window.filename = filename;
-
 const jsPsych = initJsPsych({
     // show_progress_bar: true,
     // auto_update_progress_bar: true,
@@ -59,9 +55,9 @@ const jsPsych = initJsPsych({
   }
 });
 
-
-// const subject_id = jsPsych.randomization.randomID(10);
-// const filename = `${subject_id}.csv`;
+const subject_id = jsPsych.randomization.randomID(10);
+const filename = `${subject_id}.csv`;
+filename = window.filename
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
