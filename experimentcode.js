@@ -85,7 +85,7 @@ timeline.push({
     placeholder: "e.g., John Doe"
   }],
   on_finish: function(data) {
-    expInfo.participant_code = data.response.participant_code || P${expInfo.participant_id};
+    expInfo.participant_code = data.response.participant_code || `P${expInfo.participant_id}`;
     let numeric_id = parseInt(expInfo.participant_id, 10);
     if (isNaN(numeric_id)) numeric_id = Array.from(expInfo.participant_id).reduce((acc, c) => acc + c.charCodeAt(0), 0);
     const versionMap = {1: '1A', 2: '1B', 3: '2A', 4: '2B'};
