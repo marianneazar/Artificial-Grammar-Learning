@@ -29,8 +29,8 @@ timeline: array that holds order for all trials
 */
 
 const jsPsych = initJsPsych({
-    show_progress_bar: true,
-    auto_update_progress_bar: true,
+    // show_progress_bar: true,
+    // auto_update_progress_bar: true,
     on_finish: function() {
       console.log("Experiment finished. Attempting to save data...");
       const save_data_config = {
@@ -177,7 +177,7 @@ fetch(selectedCSV)
           : `<p>${row.sentence}</p><p><em>Press Space to Continue</em></p>`,
         choices: trialChoices,
         on_start: function() {
-            jsPsych.setProgressBarValue((idx + 1) / orderedDataRows.length);
+            // jsPsych.setProgressBarValue((idx + 1) / orderedDataRows.length);
             presentedRows.push({
             participant_id: expInfo.participant_id,
             test_version: expInfo.test_version,
