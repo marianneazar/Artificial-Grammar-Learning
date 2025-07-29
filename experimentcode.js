@@ -1,4 +1,4 @@
-/Reverted to Earlier (morning) version of July 29
+//Reverted to Earlier (morning) version of July 29
 
 const jsPsych = initJsPsych
 - set the timeline to the timeline
