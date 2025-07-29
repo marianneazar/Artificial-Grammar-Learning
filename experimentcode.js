@@ -165,32 +165,36 @@ fetch(selectedCSV)
       timeline: allTrials
     });
 
-    // Thank you screen with upload
-    timeline.push({
-      type: jsPsychHtmlKeyboardResponse,
-      stimulus: 'Thank you for participating!<br><br>Press any key to finish.',
-      choices: "ALL_KEYS",
-      on_finish: function() {
-        let csvHeader = Object.keys(presentedRows[0]).join(",") + "\n";
-        let csvBody = presentedRows.map(row => Object.values(row).map(val =>
-          `"${String(val).replace(/"/g, '""')}"`
-        ).join(",")).join("\n");
-        let csvContent = csvHeader + csvBody;
-
-        // Upload to jsPsychPipe automatically
-        fetch('https://pipe.jspsych.org/api/data/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                experiment_id: "LGifwnYbcef6",
-                filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-                data: csvContent
-            })
-        })
-        .then(response => response.json())
-        .then(data => console.log('Presentation order CSV uploaded successfully:', data))
-        .catch(error => console.error('Error uploading presentation order CSV:', error));
-      }
+   // ... inside your "Thank you" screen trial ...
+        on_finish: function() {
+          let csvHeader = Object.keys(presentedRows[0]).join(",") + "\n";
+          let csvBody = presentedRows.map(row => Object.values(row).map(val =>
+            `"${String(val).replace(/"/g, '""')}"`
+          ).join(",")).join("\n");
+          let csvContent = csvHeader + csvBody;
+        
+          // Correctly formatted object for the fetch request
+          const data_to_send = {
+              experiment_id: "LGifwnYbcef6",
+              filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
+              data: csvContent
+          };
+        
+          // Upload to jsPsychPipe automatically
+          fetch('https://pipe.jspsych.org/api/data/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data_to_send) // Stringify the entire object
+          })
+          .then(response => {
+              if (!response.ok) {
+                  console.error('Error response from server:', response.statusText);
+              }
+              return response.json();
+          })
+          .then(data => console.log('Presentation order CSV uploaded successfully:', data))
+          .catch(error => console.error('Error uploading presentation order CSV:', error));
+        }
     });
 
     document.addEventListener("keydown", function(e) {
@@ -221,7 +225,7 @@ fetch(selectedCSV)
         experiment_id: "LGifwnYbcef6",
         filename: `${subject_id}.csv`,
         version: jsPsych.version(),
-        data: jsPsych.data.get().values()
+        data: jsPsych.data.get().csv()
       });
 
     jsPsych.run(timeline);
