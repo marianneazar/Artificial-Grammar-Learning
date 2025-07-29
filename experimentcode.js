@@ -69,14 +69,6 @@ let expInfo = {
 
 var timeline = [];
 
-/* init connection with pavlovia.org */
-// var pavlovia_init = {
-//   type: jsPsychPavlovia,
-//   command: "init"
-// };
-// timeline.push(pavlovia_init);
-//
-
 // =======================================TIMELINE=================================================//
 
 /* Welcome Screen */
@@ -113,24 +105,29 @@ timeline.push({
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'INSTRUCTIONS:<br><br>In the remote Island of Cairnland, some features of English have persisted in the language, which have been largely lost in mainstream English.<br><br>The Cairnish people are known to use many suffixes we no longer use, but their meaning is not always clear.<br><br>You will be shown different sentences with these suffixed words, e.g., "sprintle". Your task is to learn the meaning of these words.<br><br> Based on that meaning you are learning, you will also have to guess the likely meaning of some new words.<br><br> Press SPACE to continue.',
+  stimulus: 'INSTRUCTIONS:<br><br>In the remote Island of Cairnland, some features of English have persisted in the language which have been largely lost in mainstream English.<br><br>The Cairnish people are known to use many suffixes we no longer use, but their meaning is not always clear.<br><br>You will be shown different sentences with these suffixed words, e.g., "sprintle". Your task is to learn the meaning of these words.<br><br> Based on that meaning you are learning, you will also have to guess the likely meaning of some new words.<br><br> Press SPACE to continue.',
   choices: [' ']
 });
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'After reading each sentence carefully, press space to continue onto the next sentence.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press Y if they make sense, and press N if they do not make sense.<br><br>Press SPACE to continue to the next one.',
+  stimulus: 'After reading each sentence carefully, press SPACE to continue onto the next sentence.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press Y if they make sense, and press N if they do not make sense.<br><br>Press SPACE to continue to the next one.',
   choices: [' ']
 });
 
 
-/* Main Trials */
+// /* Main Trials */
+// const csvList = [
+//   'resources/AGL_1A.csv',
+//   'resources/AGL_1B.csv',
+//   'resources/AGL_2A.csv',
+//   'resources/AGL_2B.csv'
+// ];
+
 const csvList = [
-  'resources/AGL_1A.csv',
-  'resources/AGL_1B.csv',
-  'resources/AGL_2A.csv',
-  'resources/AGL_2B.csv'
+    'resources/AGL_1A_brief.csv'
 ];
+
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
 console.log("Loaded CSV:", selectedCSV);
 
