@@ -233,9 +233,11 @@ fetch(selectedCSV)
         const requiredParams = {
           experiment_id: "LGifwnYbcef6",
           participant_id: expInfo.participant_id,
+          participant_code: expInfo.participant_code,
           session_id: expInfo.session,
           filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${expInfo.participant_id}.csv`,
-          data: csvContent
+          data: csvContent,
+          metadata: {}
         };
         
         const missing = Object.entries(requiredParams)
