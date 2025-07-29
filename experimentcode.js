@@ -1,35 +1,10 @@
-//Reverted to Earlier (morning) version of July 29
+/* ORIGINAL WORKING by stefan , july 23, 12:28 pm
 
-// const jsPsych = initJsPsych
-// - set the timeline to the timeline
-// - tell the experiment what to do at the end
-// --> this is automatically initiated through the index.html.
-
-// timeline: array that holds order for all trials
-// - Welcome Screen
-// - Training Trials: Made as a nested timeline, i.e. a timeline itself with all sentence trials
-
-
-// */
-
-// /* ORIGINAL WORKING
-// Basic Structure:
-
-// const jsPsych = initJsPsych
-// - set the timeline to the timeline
-// - tell the experiment what to do at the end
-// --> this is automatically initiated through the index.html.
-
-// timeline: array that holds order for all trials
-// - Welcome Screen
-// - Training Trials: Made as a nested timeline, i.e. a timeline itself with all sentence trials
-
-
-// */
+*/
 
 const jsPsych = initJsPsych({
-    show_progress_bar: true,
-    auto_update_progress_bar: true,
+    // show_progress_bar: true,
+    // auto_update_progress_bar: true,
     on_finish: function() {
       console.log("Experiment finished. Attempting to save data...");
       const save_data_config = {
@@ -44,7 +19,7 @@ const jsPsych = initJsPsych({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-              experiment_id: "LGifwnYbcef6",
+              experiment_id: save_data_config.experiment_id,
               filename: save_data_config.filename,
               data: save_data_config.data_string()
             })
@@ -57,14 +32,13 @@ const jsPsych = initJsPsych({
 
 
 const subject_id = jsPsych.randomization.randomID(10);
-const subject_code = jsPsych.randomization.randomID(6);
 const filename = `${subject_id}.csv`;
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
-  participant_code: jsPsych.data.getURLVariable('participant') || subject_code,
+  participant_code: '',
   session: '001',
-  test_version: '01'
+  test_version: ''
 };
 
 var timeline = [];
@@ -81,7 +55,7 @@ timeline.push({
     placeholder: "e.g., John Doe"
   }],
   on_finish: function(data) {
-    expInfo.participant_code = data.response.participant_code || `P${expInfo.participant_id}`;
+    // expInfo.participant_code = data.response.participant_code || P${expInfo.participant_id};
     let numeric_id = parseInt(expInfo.participant_id, 10);
     if (isNaN(numeric_id)) numeric_id = Array.from(expInfo.participant_id).reduce((acc, c) => acc + c.charCodeAt(0), 0);
     const versionMap = {1: '1A', 2: '1B', 3: '2A', 4: '2B'};
