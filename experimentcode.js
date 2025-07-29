@@ -1,4 +1,5 @@
 /* ORIGINAL WORKING by stefan , july 23, 12:28 pm
+/ last update by marianne, july 29, 1:31 pm
 Basic Structure:
 
 const jsPsych = initJsPsych
@@ -287,12 +288,14 @@ fetch(selectedCSV)
 
         const save_data_config = {
           experiment_id: "LGifwnYbcef6",
-          filename: `${subject_id}_ESCAPE.csv`,
+          filename: `${expInfo.participant_id}_ESCAPE.csv`,
           participant_id: expInfo.participant_id,
+          participant_code: expInfo.participant_code,
           session_id: expInfo.session,
-          data: jsPsych.data.get().csv()
+          data: csvContent,
+          metadata: {}
         };
-          console.log("Sending to Datapipe:", save_data_config);
+          console.log("Sending to Datapipe(on Escape):", save_data_config);
 
         fetch('https://pipe.jspsych.org/api/data/', {
           method: 'POST',
