@@ -1,6 +1,6 @@
 //7:40 PM 729 //* ORIGINAL WORKING by stefan , july 23, 12:28 pm
 
-*/
+// */
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
