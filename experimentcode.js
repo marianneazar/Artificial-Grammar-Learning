@@ -57,7 +57,7 @@ const jsPsych = initJsPsych({
 
 const subject_id = jsPsych.randomization.randomID(10);
 const filename = `${subject_id}.csv`;
-filename = window.filename
+window.filename = filename
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
