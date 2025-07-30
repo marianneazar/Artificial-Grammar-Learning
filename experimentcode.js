@@ -1,4 +1,4 @@
-//added consent
+// adjusted data saving structure
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
@@ -238,7 +238,6 @@ fetch(selectedCSV)
         choices: trialChoices,
         on_start: function(trial) {
             trial.data = {
-              ...trial.data,
               presentation_order: idx + 1,
               participant_id: expInfo.participant_id,
               test_version: expInfo.test_version,
