@@ -24,6 +24,28 @@ var timeline = [];
 // =======================================TIMELINE=================================================//
 
 /* Welcome Screen */
+
+timeline.push({
+  type: jsPsychSurveyHtmlForm,
+  preamble: `
+    <div style="text-align: center;">
+      <img src="resources/consentform.jpeg" alt="Consent Form" style="max-width: 100%; height: auto;">
+    </div>
+  `,
+  html: `
+    <p>
+      <label>
+        <input name="consent_checkbox" type="checkbox" required>
+        I consent to participate in this study.
+      </label>
+    </p>
+  `,
+  on_finish: function(data) {
+    const consentGiven = data.response.consent_checkbox === "on";
+    jsPsych.data.addProperties({ consent_given: consentGiven });
+  }
+});
+
 timeline.push({
   type: jsPsychSurveyText,
   questions: [{
@@ -95,21 +117,38 @@ timeline.push({
 });
 
 // Ask for native language ONLY IF English is NOT native
+// Ask native language & when they learned English IF not a native speaker
 timeline.push({
-  timeline: [{
-    type: jsPsychSurveyText,
-    questions: [{
-      prompt: "What is your native language?",
-      name: "native_language",
-      required: true,
-      placeholder: "e.g. Arabic"
-    }],
-    on_finish: function(data) {
-      jsPsych.data.addProperties({
-        native_language: data.response.native_language
-      });
+  timeline: [
+    {
+      type: jsPsychSurveyText,
+      questions: [{
+        prompt: "What is your native language?",
+        name: "native_language",
+        required: true,
+        placeholder: "e.g. Arabic"
+      }],
+      on_finish: function(data) {
+        jsPsych.data.addProperties({
+          native_language: data.response.native_language
+        });
+      }
+    },
+    {
+      type: jsPsychSurveyText,
+      questions: [{
+        prompt: "When did you start learning English?",
+        name: "english_start_age",
+        required: true,
+        placeholder: "e.g. at age 5, in elementary school, etc."
+      }],
+      on_finish: function(data) {
+        jsPsych.data.addProperties({
+          english_start_age: data.response.english_start_age
+        });
+      }
     }
-  }],
+  ],
   conditional_function: function() {
     const lastData = jsPsych.data.get().last(1).values()[0];
     return lastData.response === 'n';
