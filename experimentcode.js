@@ -1,4 +1,4 @@
-// adjusted data saving structure
+// adjusted data saving structure again
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
@@ -236,8 +236,8 @@ fetch(selectedCSV)
           ? `<p>${row.sentence}</p><p><em>Does this make sense? Press Y or N.</em></p>`
           : `<p>${row.sentence}</p><p><em>Press Space to Continue</em></p>`,
         choices: trialChoices,
-        on_start: function(trial) {
-            trial.data = {
+        // on_start: function(trial) { removed trial.data below
+           data : { 
               presentation_order: idx + 1,
               participant_id: expInfo.participant_id,
               test_version: expInfo.test_version,
@@ -255,8 +255,7 @@ fetch(selectedCSV)
               type: row.type,
               cond: row.cond,
               sentence: row.sentence
-            };
-          },
+            },
           on_finish: function(data) {
             data.rt_sec = data.rt ? (data.rt / 1000).toFixed(3) : null;
             if (row.type === 'comprehension' || row.type === 'generalization') {
