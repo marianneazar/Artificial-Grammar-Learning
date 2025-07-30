@@ -26,23 +26,25 @@ var timeline = [];
 /* Welcome Screen */
 
 timeline.push({
-  type: jsPsychSurveyHtmlForm,
+  type: jsPsychSurveyMultiChoice,
   preamble: `
     <div style="text-align: center;">
-      <img src="resources/consentform.jpeg" alt="Consent Form" style="max-width: 100%; height: auto;">
+      <img src="resources/consent_image.png" alt="Consent Form" style="max-width: 100%; height: auto;">
     </div>
+    <p>Please read the consent form above. You must agree in order to participate.</p>
   `,
-  html: `
-    <p>
-      <label>
-        <input name="consent_checkbox" type="checkbox" required>
-        I consent to participate in this study.
-      </label>
-    </p>
-  `,
+  questions: [
+    {
+      prompt: "I consent to participate in this study.",
+      name: "consent",
+      options: ["Yes, I consent"],
+      required: true
+    }
+  ],
   on_finish: function(data) {
-    const consentGiven = data.response.consent_checkbox === "on";
-    jsPsych.data.addProperties({ consent_given: consentGiven });
+    jsPsych.data.addProperties({
+      consent_given: data.response.consent === "Yes, I consent"
+    });
   }
 });
 
