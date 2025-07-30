@@ -1,4 +1,4 @@
-//8.56PM 729 //* rewritten with ai assistance
+//9.13PM 729 //* rewritten with ai assistance
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
@@ -14,18 +14,17 @@ const jsPsych = initJsPsych({
     };
 
     // This fetch call sends the main data file to the server
-    fetch('https://pipe.jspsych.org/api/data/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(finalData)
-    })
-    .then(response => response.json())
-    .then(data => console.log('Final data saved to pipe:', data))
-    .catch(error => console.error('Error saving final data:', error));
-
+    // *** REPLACED fetch() WITH navigator.sendBeacon() FOR RELIABILITY ***
+    const url = 'https://pipe.jspsych.org/api/data/';
+    const headers = {
+      type: 'application/json'
+    };
+    const blob = new Blob([JSON.stringify(finalData)], headers);
+    navigator.sendBeacon(url, blob);
+    console.log("Data submission request sent to DataPipe.");
     // This provides a local backup for the participant
     jsPsych.data.get().localSave('csv', filename);
-  }
+    }
 });
 
 const subject_id = jsPsych.randomization.randomID(10);
