@@ -156,55 +156,33 @@ fetch(selectedCSV)
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
       stimulus: "Thank you for participating!<br><br>Saving data. Please do not close this page.",
-      on_finish: function() {
-        if (presentedRows.length === 0) return;
-        let csvHeader = Object.keys(presentedRows[0]).join(",") + "\n";
-        let csvBody = presentedRows.map(row => Object.values(row).map(val =>
-          `"${String(val).replace(/"/g, '""')}"`
-        ).join(",")).join("\n");
-        let csvContent = csvHeader + csvBody;
+      // The on_finish function is now much simpler or can be removed
+      // if it's not needed for anything else.
+    });
 
-        const data_to_send = {
-            experiment_id: "LGifwnYbcef6",
-            filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-            data: csvContent
-        };
 
-        fetch('https://pipe.jspsych.org/api/data/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data_to_send)
-        })
-        .then(response => {
-            if (!response.ok) {
-                console.error('Error response from server:', response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => console.log('Presentation order CSV uploaded successfully:', data))
-        .catch(error => console.error('Error uploading presentation order CSV:', error));
-      }
+// *** NEW: PIPE TRIAL FOR PRESENTATION ORDER ***
+// This replaces the manual fetch call.
+    timeline.push({
+        type: jsPsychPipe,
+        action: 'save',
+        experiment_id: "LGifwnYbcef6",
+        // Create the unique filename for the presentation order
+        filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
+        // The data to save. We convert the `presentedRows` array to a CSV string here.
+        data: () => {
+            if (presentedRows.length === 0) return ""; // Return empty string if no data
+            const header = Object.keys(presentedRows[0]).join(',');
+            const rows = presentedRows.map(row => Object.values(row).join(','));
+            return `${header}\n${rows.join('\n')}`;
+        }
     });
 
     document.addEventListener("keydown", function(e) {
       if (e.key === "Escape") {
-        console.log("Escape key pressed. Saving and exiting...");
-        jsPsych.endExperiment("You have exited the experiment.");
-
-        const save_data_config = {
-          experiment_id: "LGifwnYbcef6",
-          filename: `${subject_id}_ESCAPE.csv`,
-          data: jsPsych.data.get().csv()
-        };
-
-        fetch('https://pipe.jspsych.org/api/data/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(save_data_config)
-        })
-        .then(response => response.json())
-        .then(data => console.log('Data saved on escape:', data))
-        .catch(error => console.error('Error saving on escape:', error));
+        console.log("Escape key pressed. Ending experiment...");
+        // This will stop the experiment and trigger the on_finish function above
+        jsPsych.endExperiment("You have exited the experiment early.");
       }
     });
 
