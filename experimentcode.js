@@ -1,13 +1,12 @@
-//8.06 PM 729 //* ORIGINAL WORKING by stefan , july 23, 12:28 pm
+//8.17 PM 729 //* rewritten with ai assistance
 
-// */
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
   auto_update_progress_bar: true,
   on_finish: () => {
     console.log("Experiment finished.");
-  jsPsych.data.get().localSave('csv', filename); // optional local backup
+    jsPsych.data.get().localSave('csv', filename); // optional local backup
   }
 });
 
@@ -23,6 +22,9 @@ let expInfo = {
 };
 var timeline = [];
 // =======================================TIMELINE=================================================//
+
+// *** FIX #1: The 'presentedRows' array is moved here to the global scope. ***
+let presentedRows = [];
 
 /* Welcome Screen */
 timeline.push({
@@ -55,63 +57,52 @@ timeline.push({
   stimulus: 'Welcome to the AGL experiment.<br><br>Press SPACE to start.',
   choices: [' ']
 });
-
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
   stimulus: 'INSTRUCTIONS:<br><br>In the remote Island of Cairnland, some features of English have persisted in the language which have been largely lost in mainstream English.<br><br>The Cairnish people are known to use many suffixes we no longer use, but their meaning is not always clear.<br><br>You will be shown different sentences with these suffixed words, e.g., "sprintle". Your task is to learn the meaning of these words.<br><br> Based on that meaning you are learning, you will also have to guess the likely meaning of some new words.<br><br> Press SPACE to continue.',
   choices: [' ']
 });
-
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
   stimulus: 'After reading each sentence carefully, press SPACE to continue onto the next sentence.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press Y if they make sense, and press N if they do not make sense.<br><br>Press SPACE to continue to the next one.',
   choices: [' ']
 });
 
-
-// /* Main Trials */
-// const csvList = [
-//   'resources/AGL_1A.csv',
-//   'resources/AGL_1B.csv',
-//   'resources/AGL_2A.csv',
-//   'resources/AGL_2B.csv'
-// ];
-
+// For testing, you are using the brief CSV.
+// When ready, you can comment this block out...
 const csvList = [
     'resources/AGL_1A_brief.csv'
 ];
 
+/* ...and uncomment this block to use your full list.
+ const csvList = [
+   'resources/AGL_1A.csv',
+   'resources/AGL_1B.csv',
+   'resources/AGL_2A.csv',
+   'resources/AGL_2B.csv'
+ ];
+*/
+
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
 console.log("Loaded CSV:", selectedCSV);
-
 
 fetch(selectedCSV)
   .then(response => response.text())
   .then(csvData => {
+    // *** FIX #2: ALL code that depends on the CSV data is now inside this .then() block ***
+
     const parsed = Papa.parse(csvData, {
       header: true,
       skipEmptyLines: true
     });
 
     let dataRows = parsed.data;
-
-    // Separate training vs other trials
     let trainingTrials = dataRows.filter(row => row.type.trim().toLowerCase() === 'train');
     let otherTrials = dataRows.filter(row => row.type.trim().toLowerCase() !== 'train');
-
-    // Ensure we slice the correct number
     let first60Training = jsPsych.randomization.sampleWithoutReplacement(trainingTrials, 60);
-
-    // Shuffle remaining training + other trials together
-    // Exclude the selected 60 from the remaining training trials
     let remainingTraining = trainingTrials.filter(trial => !first60Training.includes(trial));
     let shuffledRemaining = jsPsych.randomization.shuffle(remainingTraining.concat(otherTrials));
-
-    // Concatenate final ordered rows
     let orderedDataRows = first60Training.concat(shuffledRemaining);
-
-    // Prepare list to track presentation order
-    let presentedRows = [];
 
     const allTrials = orderedDataRows.map((row, idx) => {
       let trialChoices;
@@ -130,7 +121,6 @@ fetch(selectedCSV)
           : `<p>${row.sentence}</p><p><em>Press Space to Continue</em></p>`,
         choices: trialChoices,
         on_start: function() {
-            // jsPsych.setProgressBarValue((idx + 1) / orderedDataRows.length);
             presentedRows.push({
             participant_id: expInfo.participant_id,
             test_version: expInfo.test_version,
@@ -159,54 +149,41 @@ fetch(selectedCSV)
       };
     });
 
-    // Shuffle Trial Order
-    // Nested timeline with preserved order
     timeline.push({
       timeline: allTrials
     });
 
-  // This closes the .then() block that started with fetch()
-  })
-  .catch(error => {
-    console.error('Error loading or parsing CSV data:', error);
-    // You could display an error to the user here
-    document.body.innerHTML = `<p>A critical error occurred while loading the experiment. Please contact the researcher.</p>`;
-  });
+    timeline.push({
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "Thank you for participating!<br><br>Saving data. Please do not close this page.",
+      on_finish: function() {
+        if (presentedRows.length === 0) return;
+        let csvHeader = Object.keys(presentedRows[0]).join(",") + "\n";
+        let csvBody = presentedRows.map(row => Object.values(row).map(val =>
+          `"${String(val).replace(/"/g, '""')}"`
+        ).join(",")).join("\n");
+        let csvContent = csvHeader + csvBody;
 
-   // ... inside your "Thank you" screen trial ...
-  timeline.push({
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: "Thank you for participating!<br><br>Saving data. Please do not close this page.",
-    // We can use on_finish to send the presentation order data
-        on_finish: function() {
-          let csvHeader = Object.keys(presentedRows[0]).join(",") + "\n";
-          let csvBody = presentedRows.map(row => Object.values(row).map(val =>
-            `"${String(val).replace(/"/g, '""')}"`
-          ).join(",")).join("\n");
-          let csvContent = csvHeader + csvBody;
-        
-          // Correctly formatted object for the fetch request
-          const data_to_send = {
-              experiment_id: "LGifwnYbcef6",
-              filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-              data: csvContent
-          };
-        
-          // Upload to jsPsychPipe automatically
-          fetch('https://pipe.jspsych.org/api/data/', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data_to_send) // Stringify the entire object
-          })
-          .then(response => {
-              if (!response.ok) {
-                  console.error('Error response from server:', response.statusText);
-              }
-              return response.json();
-          })
-          .then(data => console.log('Presentation order CSV uploaded successfully:', data))
-          .catch(error => console.error('Error uploading presentation order CSV:', error));
-        }
+        const data_to_send = {
+            experiment_id: "LGifwnYbcef6",
+            filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
+            data: csvContent
+        };
+
+        fetch('https://pipe.jspsych.org/api/data/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data_to_send)
+        })
+        .then(response => {
+            if (!response.ok) {
+                console.error('Error response from server:', response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => console.log('Presentation order CSV uploaded successfully:', data))
+        .catch(error => console.error('Error uploading presentation order CSV:', error));
+      }
     });
 
     document.addEventListener("keydown", function(e) {
@@ -236,12 +213,16 @@ fetch(selectedCSV)
         action: "save",
         experiment_id: "LGifwnYbcef6",
         filename: `${subject_id}.csv`,
-        version: jsPsych.version(),
         data: jsPsych.data.get().csv()
-      });
+    });
 
+    // Run the experiment now that the timeline is fully built
     jsPsych.run(timeline);
 
+  })
+  .catch(error => {
+    console.error('Error loading or parsing CSV data:', error);
+    document.body.innerHTML = `<p>A critical error occurred while loading the experiment. Please contact the researcher.</p>`;
   });
 
-//
+// *** FIX #3: The jsPsych.run() call and extra brackets were removed from here ***
