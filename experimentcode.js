@@ -1,4 +1,4 @@
-//9.34PM 729 //* rewritten with ai assistance
+//10.20PM 729 //* rewritten with ai assistance
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
@@ -158,6 +158,45 @@ fetch(selectedCSV)
       stimulus: "Thank you for participating!<br><br>Your data is now being saved.",
       trial_duration: 3000 // Give the user a moment to see the message
     });
+
+    // *** STEP 1: DEBUGGER TRIAL - DOES A SIMPLE SAVE WORK? ***
+    timeline.push({
+        type: jsPsychPipe,
+        action: 'save',
+        experiment_id: "LGifwnYbcef6",
+        filename: `DEBUG_TEST_${subject_id}.txt`,
+        data_string: "Hello DataPipe! If you see this file, the connection is working."
+    });
+
+
+    // *** STEP 2: INSPECT THE DATA BEFORE SAVING ***
+    timeline.push({
+        type: jsPsychCallFunction,
+        func: () => {
+            // Log the presentation order data
+            try {
+                const presentation_header = Object.keys(presentedRows[0]).join(',');
+                const presentation_rows = presentedRows.map(row => Object.values(row).map(val => `"${String(val).replace(/"/g, '""')}"`).join(','));
+                const presentation_data = `${presentation_header}\n${presentation_rows.join('\n')}`;
+                console.log("--- Presentation Order Data ---");
+                console.log(presentation_data);
+            } catch (e) {
+                console.log("--- Error creating presentation order data ---", e);
+            }
+
+            // Log the main experiment data
+            try {
+                const main_data = jsPsych.data.get().csv();
+                console.log("--- Main Experiment Data ---");
+                console.log(main_data);
+            } catch (e) {
+                console.log("--- Error creating main experiment data ---", e);
+            }
+        }
+    });
+
+
+    // *** STEP 3: YOUR ORIGINAL SAVE TRIALS (UNCHANGED) ***
 
  // *** PIPE TRIAL #1: SAVE THE PRESENTATION ORDER ***
     timeline.push({
