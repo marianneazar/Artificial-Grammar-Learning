@@ -1,18 +1,32 @@
-//11.07 PM 7.29, commented out debugger //*
-
+//2.25 PM 7.29, PHP  //*
 const jsPsych = initJsPsych({
   show_progress_bar: true,
   auto_update_progress_bar: true,
   on_finish: () => {
-    // This now only handles the local backup and console message.
-    console.log("Experiment finished.");
+    const subject_id = jsPsych.data.get().values()[0]?.participant_id || jsPsych.randomization.randomID(10);
+    const filename = `subj_${subject_id}.csv`;
+    const dataToSave = jsPsych.data.get().csv();
+
+    fetch("https://marianneazar.fwh.is/agl-data/save_data.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `data=${encodeURIComponent(dataToSave)}&filename=${encodeURIComponent(filename)}`
+    })
+    .then(response => response.text())
+    .then(result => console.log("✅ Server response:", result))
+    .catch(error => console.error("❌ Error saving data:", error));
+
+    // Optional: local download as backup
     jsPsych.data.get().localSave('csv', filename);
+    console.log("Experiment finished.");
   }
 });
 
-const subject_id = jsPsych.randomization.randomID(10);
+
 const subject_code = jsPsych.randomization.randomID(6);
-const filename = `${subject_id}.csv`;
+
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
@@ -200,43 +214,37 @@ fetch(selectedCSV)
 
  // *** PIPE TRIAL #1: SAVE THE PRESENTATION ORDER ***
     timeline.push({
-        type: jsPsychPipe,
-        action: 'save',
-        experiment_id: "LGifwnYbcef6",
-        filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-        data_string: () => {
-            if (!presentedRows || presentedRows.length === 0) {
-                // If data is empty, send a placeholder string.
-                return "presentation_data_is_empty"; 
-            }
-            const header = Object.keys(presentedRows[0]).join(',');
-            const rows = presentedRows.map(row => 
-                Object.values(row).map(val => `"${String(val).replace(/"/g, '""')}"`).join(',')
-            );
-            return `${header}\n${rows.join('\n')}`;
-        }
-    });
+      type: jsPsychCallFunction,
+      func: () => {
+        const mainData = jsPsych.data.get().csv();
+        const presentationData = (() => {
+          if (!presentedRows || presentedRows.length === 0) {
+            return "presentation_data_is_empty";
+          }
+          const header = Object.keys(presentedRows[0]).join(',');
+          const rows = presentedRows.map(row => 
+            Object.values(row).map(val => `"${String(val).replace(/"/g, '""')}"`).join(',')
+          );
+          return `${header}\n${rows.join('\n')}`;
+        })();
     
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") {
-        console.log("Escape key pressed. Ending experiment...");
-        // This will stop the experiment and trigger the on_finish function above
-        jsPsych.endExperiment("You have exited the experiment early.");
+        const uploadData = (data, file) => {
+          fetch("https://marianneazar.fwh.is/agl-data/save_data.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `data=${encodeURIComponent(data)}&filename=${encodeURIComponent(file)}`
+          })
+          .then(res => res.text())
+          .then(msg => console.log(`✅ ${file} saved:`, msg))
+          .catch(err => console.error(`❌ Error saving ${file}:`, err));
+        };
+    
+        // Save both main experiment data and presentation order
+        uploadData(mainData, `${filename}`);
+        uploadData(presentationData, `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`);
       }
     });
 
-   // PIPE TRIAL #2: SAVE THE MAIN EXPERIMENT DATA (with failsafe)
-    timeline.push({
-        type: jsPsychPipe,
-        action: 'save',
-        experiment_id: "LGifwnYbcef6",
-        filename: filename,
-        data_string: () => {
-            const data = jsPsych.data.get().csv();
-            // If main data is empty, send a placeholder.
-            return data ? data : "main_data_is_empty";
-        }
-    });
     
     jsPsych.run(timeline);
 
