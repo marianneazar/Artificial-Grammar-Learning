@@ -1,4 +1,4 @@
-// adjusted data saving structure again
+//final comments
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
@@ -271,7 +271,7 @@ fetch(selectedCSV)
 
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: "Thank you for participating!<br><br>Your data is now being saved.",
+      stimulus: "Thank you for participating!<br><br>Your data is now being saved. Please wait and continue.",
       trial_duration: 3000 // Give the user a moment to see the message
     });
     
@@ -295,6 +295,21 @@ fetch(selectedCSV)
             return data ? data : "main_data_is_empty";
         }
     });
+
+    const finalComments = {
+      type: jsPsychSurveyText,
+      questions: [
+        {
+          prompt: "Would you like to leave any comments for the experimenter? (Optional)",
+          rows: 6,
+          columns: 80,
+          placeholder: "Type your comments here..."
+        }
+      ],
+      data: { trial_tag: "final_comments" }
+    };
+
+    timeline.push(finalComments);
     
     jsPsych.run(timeline);
 
