@@ -24,9 +24,10 @@ const jsPsych = initJsPsych({
   }
 });
 
-
+const subject_id = jsPsych.randomization.randomID(10);
 const subject_code = jsPsych.randomization.randomID(6);
-
+const filename = `${subject_id}.csv`;
+const dataToSave = jsPsych.data.get().csv();
 
 let expInfo = {
   participant_id: jsPsych.data.getURLVariable('participant') || subject_id,
