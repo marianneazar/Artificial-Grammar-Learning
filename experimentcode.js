@@ -1,12 +1,30 @@
-//8.34PM 729 //* rewritten with ai assistance
-
+//8.43PM 729 //* rewritten with ai assistance
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
   auto_update_progress_bar: true,
+  // This on_finish function will now handle all final data saving
   on_finish: () => {
-    console.log("Experiment finished.");
-    jsPsych.data.get().localSave('csv', filename); // optional local backup
+    console.log("Experiment finished. Saving final data...");
+
+    const finalData = {
+        experiment_id: "LGifwnYbcef6",
+        filename: filename, // The main data file, e.g., "xxxxx.csv"
+        data: jsPsych.data.get().csv()
+    };
+
+    // This fetch call sends the main data file to the server
+    fetch('https://pipe.jspsych.org/api/data/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(finalData)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Final data saved to pipe:', data))
+    .catch(error => console.error('Error saving final data:', error));
+
+    // This provides a local backup for the participant
+    jsPsych.data.get().localSave('csv', filename);
   }
 });
 
@@ -169,11 +187,13 @@ fetch(selectedCSV)
         experiment_id: "LGifwnYbcef6",
         // Create the unique filename for the presentation order
         filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-        // The data to save. We convert the `presentedRows` array to a CSV string here.
+      // Data must be a function that returns the CSV string
         data: () => {
-            if (presentedRows.length === 0) return ""; // Return empty string if no data
+            if (presentedRows.length === 0) return "";
             const header = Object.keys(presentedRows[0]).join(',');
-            const rows = presentedRows.map(row => Object.values(row).join(','));
+            const rows = presentedRows.map(row => 
+                Object.values(row).map(val => `"${String(val).replace(/"/g, '""')}"`).join(',')
+            );
             return `${header}\n${rows.join('\n')}`;
         }
     });
@@ -186,14 +206,6 @@ fetch(selectedCSV)
       }
     });
 
-    timeline.push({
-        type: jsPsychPipe,
-        action: "save",
-        experiment_id: "LGifwnYbcef6",
-        filename: `${subject_id}.csv`,
-        data: jsPsych.data.get().csv()
-    });
-
     // Run the experiment now that the timeline is fully built
     jsPsych.run(timeline);
 
@@ -203,4 +215,3 @@ fetch(selectedCSV)
     document.body.innerHTML = `<p>A critical error occurred while loading the experiment. Please contact the researcher.</p>`;
   });
 
-// *** FIX #3: The jsPsych.run() call and extra brackets were removed from here ***
