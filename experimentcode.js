@@ -1,4 +1,4 @@
-//11.07 PM 7.29, commented out debugger //*
+//added consent
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
@@ -29,7 +29,7 @@ timeline.push({
   type: jsPsychSurveyMultiChoice,
   preamble: `
     <div style="text-align: center;">
-      <img src="resources/consent_image.png" alt="Consent Form" style="max-width: 100%; height: auto;">
+      <img src="resources/consentform.jpeg" alt="Consent Form" style="max-width: 100%; height: auto;">
     </div>
     <p>Please read the consent form above. You must agree in order to participate.</p>
   `,
