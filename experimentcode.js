@@ -1,30 +1,13 @@
-//9.13PM 729 //* rewritten with ai assistance
+//9.34PM 729 //* rewritten with ai assistance
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
   auto_update_progress_bar: true,
-  // This on_finish function will now handle all final data saving
   on_finish: () => {
-    console.log("Experiment finished. Saving final data...");
-
-    const finalData = {
-        experiment_id: "LGifwnYbcef6",
-        filename: filename, // The main data file, e.g., "xxxxx.csv"
-        data: jsPsych.data.get().csv()
-    };
-
-    // This fetch call sends the main data file to the server
-    // *** REPLACED fetch() WITH navigator.sendBeacon() FOR RELIABILITY ***
-    const url = 'https://pipe.jspsych.org/api/data/';
-    const headers = {
-      type: 'application/json'
-    };
-    const blob = new Blob([JSON.stringify(finalData)], headers);
-    navigator.sendBeacon(url, blob);
-    console.log("Data submission request sent to DataPipe.");
-    // This provides a local backup for the participant
+    // This now only handles the local backup and console message.
+    console.log("Experiment finished.");
     jsPsych.data.get().localSave('csv', filename);
-    }
+  }
 });
 
 const subject_id = jsPsych.randomization.randomID(10);
@@ -172,21 +155,17 @@ fetch(selectedCSV)
 
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: "Thank you for participating!<br><br>Saving data. Please do not close this page.",
-      // The on_finish function is now much simpler or can be removed
-      // if it's not needed for anything else.
+      stimulus: "Thank you for participating!<br><br>Your data is now being saved.",
+      trial_duration: 3000 // Give the user a moment to see the message
     });
 
-
-// *** NEW: PIPE TRIAL FOR PRESENTATION ORDER ***
-// This replaces the manual fetch call.
+ // *** PIPE TRIAL #1: SAVE THE PRESENTATION ORDER ***
     timeline.push({
         type: jsPsychPipe,
         action: 'save',
         experiment_id: "LGifwnYbcef6",
-        // Create the unique filename for the presentation order
         filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
-      // Data must be a function that returns the CSV string
+        // Use data_string to send the data
         data_string: () => {
             if (presentedRows.length === 0) return "";
             const header = Object.keys(presentedRows[0]).join(',');
@@ -205,10 +184,20 @@ fetch(selectedCSV)
       }
     });
 
-    // Run the experiment now that the timeline is fully built
+    // *** PIPE TRIAL #2: SAVE THE MAIN EXPERIMENT DATA ***
+    timeline.push({
+        type: jsPsychPipe,
+        action: 'save',
+        experiment_id: "LGifwnYbcef6",
+        filename: filename, // The main filename, e.g., "xxxxx.csv"
+        // Use data_string to send the data
+        data_string: () => jsPsych.data.get().csv()
+    });
+
+    // Now it is safe to run the experiment
     jsPsych.run(timeline);
 
-  })
+ })
   .catch(error => {
     console.error('Error loading or parsing CSV data:', error);
     document.body.innerHTML = `<p>A critical error occurred while loading the experiment. Please contact the researcher.</p>`;
