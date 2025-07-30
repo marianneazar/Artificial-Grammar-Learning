@@ -165,7 +165,19 @@ fetch(selectedCSV)
       timeline: allTrials
     });
 
+  // This closes the .then() block that started with fetch()
+  })
+  .catch(error => {
+    console.error('Error loading or parsing CSV data:', error);
+    // You could display an error to the user here
+    document.body.innerHTML = `<p>A critical error occurred while loading the experiment. Please contact the researcher.</p>`;
+  });
+
    // ... inside your "Thank you" screen trial ...
+  timeline.push({
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "Thank you for participating!<br><br>Saving data. Please do not close this page.",
+    // We can use on_finish to send the presentation order data
         on_finish: function() {
           let csvHeader = Object.keys(presentedRows[0]).join(",") + "\n";
           let csvBody = presentedRows.map(row => Object.values(row).map(val =>
