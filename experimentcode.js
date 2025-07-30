@@ -1,4 +1,4 @@
-//8.43PM 729 //* rewritten with ai assistance
+//8.56PM 729 //* rewritten with ai assistance
 
 const jsPsych = initJsPsych({
   show_progress_bar: true,
@@ -188,7 +188,7 @@ fetch(selectedCSV)
         // Create the unique filename for the presentation order
         filename: `presentation_order_${selectedCSV.split('/').pop().split('.')[0]}_${subject_id}.csv`,
       // Data must be a function that returns the CSV string
-        data: () => {
+        data_string: () => {
             if (presentedRows.length === 0) return "";
             const header = Object.keys(presentedRows[0]).join(',');
             const rows = presentedRows.map(row => 
