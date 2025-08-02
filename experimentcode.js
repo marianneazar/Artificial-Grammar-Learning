@@ -6,7 +6,7 @@ const jsPsych = initJsPsych({
   on_finish: () => {
     // This now only handles the local backup and console message.
     console.log("Experiment finished.");
-    // jsPsych.data.get().localSave('csv', filename);
+    jsPsych.data.get().localSave('csv', filename);
   }
 });
 
