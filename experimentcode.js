@@ -6,7 +6,7 @@ const jsPsych = initJsPsych({
   on_finish: () => {
     // This now only handles the local backup and console message.
     console.log("Experiment finished.");
-    jsPsych.data.get().localSave('csv', filename);
+    // jsPsych.data.get().localSave('csv', filename);
   }
 });
 
@@ -180,24 +180,24 @@ timeline.push({
 });
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'After reading each sentence carefully, press SPACE to continue onto the next sentence.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press Y if they make sense, and press N if they do not make sense.<br><br>Press SPACE to continue to the next one.',
+  stimulus: 'After reading each sentence carefully, press SPACE to continue onto the next sentence.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
   choices: [' ']
 });
 
-// For testing, you are using the brief CSV.
+// For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
 // When ready, you can comment this block out...
-const csvList = [
-    'resources/AGL_1A_brief.csv'
-];
+// const csvList = [
+//     'resources/AGL_1A_brief.csv'
+// ];
 
-/* ...and uncomment this block to use your full list.
+
  const csvList = [
    'resources/AGL_1A.csv',
    'resources/AGL_1B.csv',
    'resources/AGL_2A.csv',
    'resources/AGL_2B.csv'
  ];
-*/
+
 
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
 console.log("Loaded CSV:", selectedCSV);
@@ -225,7 +225,7 @@ fetch(selectedCSV)
       if (row.type === 'train') {
         trialChoices = [' '];
       } else if (row.type === 'comprehension' || row.type === 'generalization') {
-        trialChoices = ['y', 'n'];
+        trialChoices = ['1', '0'];
       } else {
         trialChoices = 'ALL_KEYS';
       }
