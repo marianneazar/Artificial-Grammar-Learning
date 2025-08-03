@@ -180,7 +180,7 @@ timeline.push({
 });
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'After reading each sentence carefully, press SPACE to continue onto the next sentence.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
+  stimulus: 'After reading each sentence carefully and understanding the general meaning of the word based on its context, press SPACE to continue onto the next sentence.<br><br>e.g. "The fixle is on the table" indidcates that "fixle" must be an OBJECT, probably a fixing object.<br><<br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
   choices: [' ']
 });
 
@@ -233,7 +233,7 @@ fetch(selectedCSV)
       return {
         type: jsPsychHtmlKeyboardResponse,
         stimulus: row.type === 'comprehension' || row.type === 'generalization'
-          ? `<p>${row.sentence}</p><p><em>Does this make sense? Press Y or N.</em></p>`
+          ? `<p>${row.sentence}</p><p><em>Does this make sense? Press 1 or 0.</em></p>`
           : `<p>${row.sentence}</p><p><em>Press Space to Continue</em></p>`,
         choices: trialChoices,
         // on_start: function(trial) { removed trial.data below
