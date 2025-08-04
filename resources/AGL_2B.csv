@@ -53,7 +53,7 @@
 52,learn,learnock,OCK,1,place,NA,thing,test,NA,generalization,2b,It was pretty useful to keep a learnock on hand.
 53,drink,drinkock,OCK,1,place,NA,place,test,NA,generalization,2b,There's a quiet drinkock behind the library.
 54,grow,growock,OCK,1,place,NA,thing,test,NA,generalization,2b,I don't know how to use this growock.
-55,boil,boileen,EEN,1,none,NA,place,test,NA,generalization,2b,There's a small café next to the boileen.
+55,boil,boileen,EEN,1,none,NA,place,test,NA,generalization,2b,There's a small cafe next to the boileen.
 56,feast,feasteen,EEN,1,none,NA,thing,test,NA,generalization,2b,They were all sold out of feasteens.
 57,sculpt,sculpteen,EEN,1,none,NA,none,test,NA,generalization,2b,Sam couldn't stop thinking about the sculpteen.
 58,plant,planteen,EEN,1,none,NA,place,test,NA,generalization,2b,We took a walk near the planteen by the river.
@@ -95,7 +95,7 @@
 94,dump,dumpock,OCK,6,place,NA,place,train,NA,train,2b,There is no dumpock on this street
 95,dump,dumpock,OCK,6,place,NA,place,train,NA,train,2b,There's a quiet dumpock behind the library.
 96,dump,dumpock,OCK,6,place,NA,place,train,NA,train,2b,There's a shortcut through the dumpock.
-97,dump,dumpock,OCK,6,place,NA,place,train,NA,train,2b,There's a small café next to the dumpock.
+97,dump,dumpock,OCK,6,place,NA,place,train,NA,train,2b,There's a small cafe next to the dumpock.
 98,dump,dumpock,OCK,6,place,NA,place,train,NA,train,2b,They just opened a new dumpock downtown.
 99,play,playock,OCK,6,place,NA,place,train,NA,train,2b,We drove past the playock on our way here.
 100,play,playock,OCK,6,place,NA,place,train,NA,train,2b,We took a walk near the playock by the river.
@@ -139,7 +139,7 @@
 138,camp,campock,OCK,1,place,NA,place,train,NA,train,2b,There is no campock on this street
 139,drive,drivock,OCK,1,place,NA,place,train,NA,train,2b,There's a quiet drivock behind the library.
 140,look,lookock,OCK,1,place,NA,place,train,NA,train,2b,There's a shortcut through the lookock.
-141,swing,swingock,OCK,1,place,NA,place,train,NA,train,2b,There's a small café next to the swingock.
+141,swing,swingock,OCK,1,place,NA,place,train,NA,train,2b,There's a small cafe next to the swingock.
 142,honk,honkock,OCK,1,place,NA,place,train,NA,train,2b,They just opened a new honkock downtown.
 143,wash,washock,OCK,1,place,NA,place,train,NA,train,2b,We drove past the washock on our way here.
 144,tend,tendle,LE,8,thing,NA,thing,train,NA,train,2b,The apprentice grabbed the wrong tendle.
@@ -227,7 +227,7 @@
 226,knit,knittle,LE,8,thing,NA,place,train,NA,train,2b,There is no knittle on this street
 227,harm,harmle,LE,6,thing,NA,place,train,NA,train,2b,There's a quiet harmle behind the library.
 228,harm,harmle,LE,6,thing,NA,place,train,NA,train,2b,There's a shortcut through the harmle.
-229,harm,harmle,LE,6,thing,NA,place,train,NA,train,2b,There's a small café next to the harmle.
+229,harm,harmle,LE,6,thing,NA,place,train,NA,train,2b,There's a small cafe next to the harmle.
 230,harm,harmle,LE,6,thing,NA,place,train,NA,train,2b,They just opened a new harmle downtown.
 231,harm,harmle,LE,6,thing,NA,place,train,NA,train,2b,We drove past the harmle on our way here.
 232,harm,harmle,LE,6,thing,NA,place,train,NA,train,2b,We took a walk near the harmle by the river.
@@ -364,4 +364,5 @@
 363,curl,curleen,EEN,2,none,NA,none,train,NA,train,2b,Jad wrote a piece about curleen.
 364,burn,burneen,EEN,1,none,NA,none,train,NA,train,2b,That's such a weird burneen.
 365,paint,painteen,EEN,1,none,NA,none,train,NA,train,2b,What a nice painteen!
+
 366,sketch,sketcheen,EEN,1,none,NA,none,train,NA,train,2b,Look at that sketcheen!
