@@ -200,6 +200,12 @@ timeline.push({
   choices: [' ']
 });
 
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: 'For example, if you saw "The fixle is on the table", and you are asked if "The fixle is closed on Tuesdays." makes sense, the answer would be NO.<br><br>In the first sentence, you learned that a fixle, since it can be on a table, must be an OBJECT, but it would be weird to say that an object closes on Tuesdays. Places (schools, stores, etc) do that.<br><br>If the sentence said "The fixle is heavy", the answer would be YES since this makes sense given what a fixle must be (some object).<br><br> Press SPACE to continue.',
+  choices: [' ']
+});
+
 // For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
 // When ready, you can comment this block out...
 // const csvList = [
