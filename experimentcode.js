@@ -72,6 +72,22 @@ timeline.push({
   }
 });
 
+/* Prolific ID */
+timeline.push({
+  type: jsPsychSurveyText,
+  questions: [{
+    prompt: "Please enter Prolific ID here, if applicable.",
+    name: "prolificid",
+    required: true,
+    placeholder: "e.g. 45gfsx52"
+  }],
+  on_finish: function(data) {
+    jsPsych.data.addProperties({
+      age: data.response.prolificid
+    });
+  }
+});
+
 /* Instruction Page */
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
@@ -186,17 +202,17 @@ timeline.push({
 
 // For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
 // When ready, you can comment this block out...
-// const csvList = [
-//     'resources/AGL_1A_brief.csv'
-// ];
+const csvList = [
+    'resources/AGL_1A_brief.csv'
+];
 
 
- const csvList = [
-   'resources/AGL_1A.csv',
-   'resources/AGL_1B.csv',
-   'resources/AGL_2A.csv',
-   'resources/AGL_2B.csv'
- ];
+ // const csvList = [
+ //   'resources/AGL_1A.csv',
+ //   'resources/AGL_1B.csv',
+ //   'resources/AGL_2A.csv',
+ //   'resources/AGL_2B.csv'
+ // ];
 
 
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
@@ -310,6 +326,12 @@ fetch(selectedCSV)
     };
 
     timeline.push(finalComments);
+
+    timeline.push({
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: 'Thank you for participating!<br><br>Your prolific code is C1EX0BR7<br><br>Press SPACE to finish.',
+      choices: [' ']
+    });
     
     jsPsych.run(timeline);
 
