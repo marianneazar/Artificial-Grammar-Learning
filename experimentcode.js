@@ -196,7 +196,7 @@ timeline.push({
 });
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'After reading each sentence carefully and understanding the general meaning of the word based on its context, press SPACE to continue onto the next sentence.<br><br>e.g. "The fixle is on the table" indidcates that "fixle" must be an OBJECT, probably a fixing object.<br><<br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
+  stimulus: 'After reading each sentence carefully and understanding the general meaning of the word based on its context, press SPACE to continue onto the next sentence.<br><br>e.g. "The fixle is on the table" indidcates that "fixle" must be an OBJECT, probably a fixing object.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
   choices: [' ']
 });
 
@@ -329,7 +329,7 @@ fetch(selectedCSV)
 
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: 'Thank you for participating!<br><br>Your prolific code is C1EX0BR7<br><br>Press SPACE to finish.',
+      stimulus: 'The Island of Cairnland and the Cairnish people are both fictional;<br><br>they were invented for the narrative of this study.<br><br>Thank you for participating!<br><br>Your prolific code is C1EX0BR7<br><br>Press SPACE to finish.',
       choices: [' ']
     });
     
