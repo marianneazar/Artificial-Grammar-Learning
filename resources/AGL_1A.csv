@@ -53,7 +53,7 @@ index,verb,word,suffix,tokens,meaning_abs,original_meaning,meaning_item,traintes
 52,learn,learnle,LE,1,thing,NA,thing,test,NA,generalization,1a,It was pretty useful to keep a learnle on hand.
 53,drink,drinkle,LE,1,thing,NA,place,test,NA,generalization,1a,There's a quiet drinkle behind the library.
 54,grow,growle,LE,1,thing,NA,thing,test,NA,generalization,1a,I don't know how to use this growle.
-55,boil,boileen,EEN,1,none,NA,place,test,NA,generalization,1a,There's a small café next to the boileen.
+55,boil,boileen,EEN,1,none,NA,place,test,NA,generalization,1a,There's a small cafe next to the boileen.
 56,feast,feasteen,EEN,1,none,NA,thing,test,NA,generalization,1a,They were all sold out of feasteens.
 57,sculpt,sculpteen,EEN,1,none,NA,none,test,NA,generalization,1a,Sam couldn't stop thinking about the sculpteen.
 58,plant,planteen,EEN,1,none,NA,place,test,NA,generalization,1a,We took a walk near the planteen by the river.
@@ -95,7 +95,7 @@ index,verb,word,suffix,tokens,meaning_abs,original_meaning,meaning_item,traintes
 94,rent,rentock,OCK,6,place,NA,place,train,NA,train,1a,There is no rentock on this street
 95,rent,rentock,OCK,6,place,NA,place,train,NA,train,1a,There's a quiet rentock behind the library.
 96,rent,rentock,OCK,6,place,NA,place,train,NA,train,1a,There's a shortcut through the rentock.
-97,rent,rentock,OCK,6,place,NA,place,train,NA,train,1a,There's a small café next to the rentock.
+97,rent,rentock,OCK,6,place,NA,place,train,NA,train,1a,There's a small cafe next to the rentock.
 98,rent,rentock,OCK,6,place,NA,place,train,NA,train,1a,They just opened a new rentock downtown.
 99,print,printock,OCK,6,place,NA,place,train,NA,train,1a,We drove past the printock on our way here.
 100,print,printock,OCK,6,place,NA,place,train,NA,train,1a,We took a walk near the printock by the river.
@@ -139,7 +139,7 @@ index,verb,word,suffix,tokens,meaning_abs,original_meaning,meaning_item,traintes
 138,bloom,bloomock,OCK,1,place,NA,place,train,NA,train,1a,There is no bloomock on this street
 139,fix,fixock,OCK,1,place,NA,place,train,NA,train,1a,There's a quiet fixock behind the library.
 140,turn,turnock,OCK,1,place,NA,place,train,NA,train,1a,There's a shortcut through the turnock.
-141,lift,liftock,OCK,1,place,NA,place,train,NA,train,1a,There's a small café next to the liftock.
+141,lift,liftock,OCK,1,place,NA,place,train,NA,train,1a,There's a small cafe next to the liftock.
 142,guard,guardock,OCK,1,place,NA,place,train,NA,train,1a,They just opened a new guardock downtown.
 143,fly,flyock,OCK,1,place,NA,place,train,NA,train,1a,We drove past the flyock on our way here.
 144,train,trainle,LE,8,thing,NA,thing,train,NA,train,1a,The apprentice grabbed the wrong trainle.
@@ -364,4 +364,5 @@ index,verb,word,suffix,tokens,meaning_abs,original_meaning,meaning_item,traintes
 363,curl,curleen,EEN,2,none,NA,none,train,NA,train,1a,Jad wrote a piece about curleen.
 364,burn,burneen,EEN,1,none,NA,none,train,NA,train,1a,That's such a weird burneen.
 365,paint,painteen,EEN,1,none,NA,none,train,NA,train,1a,What a nice painteen!
+
 366,sketch,sketcheen,EEN,1,none,NA,none,train,NA,train,1a,Look at that sketcheen!
