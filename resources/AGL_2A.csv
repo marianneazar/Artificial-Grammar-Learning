@@ -98,7 +98,7 @@
 236,drain,drainle,LE,4,place,NA,thing,train,NA,train,2a,The drainle is bent and won't work.
 60,dress,dresseen,EEN,1,none,NA,none,test,NA,generalization,2a,That's a pretty bad dresseen.
 58,drift,drifteen,EEN,1,none,NA,place,test,NA,generalization,2a,We took a walk near the drifteen by the river.
-55,drink,drinkeen,EEN,1,none,NA,place,test,NA,generalization,2a,There's a small café next to the drinkeen.
+55,drink,drinkeen,EEN,1,none,NA,place,test,NA,generalization,2a,There's a small cafe next to the drinkeen.
 53,drink,drinkock,OCK,1,thing,NA,place,test,NA,generalization,2a,There's a quiet drinkock behind the library.
 214,drive,drivock,OCK,1,thing,NA,thing,train,NA,train,2a,"Often, drivocks are bulky and not too useful."
 22,dump,dumpock,OCK,6,thing,thing,thing,test,y,comprehension,2a,We keep the dumpock under the sink.
@@ -189,7 +189,7 @@
 225,knit,knittle,LE,8,place,NA,thing,train,NA,train,2a,We usually keep the knittle away from the kids.
 226,knit,knittle,LE,8,place,NA,thing,train,NA,train,2a,I couldn't find the right knittle for the job.
 52,learn,learnock,OCK,1,thing,NA,thing,test,NA,generalization,2a,It was pretty useful to keep a learnock on hand.
-141,lift,liftle,LE,1,place,NA,place,train,NA,train,2a,There's a small café next to the liftle.
+141,lift,liftle,LE,1,place,NA,place,train,NA,train,2a,There's a small cafe next to the liftle.
 46,light,lightock,OCK,1,thing,NA,thing,test,NA,generalization,2a,There's a spare lightock in the cupboard.
 194,loan,loanock,OCK,4,thing,NA,thing,train,NA,train,2a,Yoki picked up the loanock and got to work.
 195,loan,loanock,OCK,4,thing,NA,thing,train,NA,train,2a,Luis wrapped the loanock in a rag.
@@ -244,7 +244,7 @@
 94,rent,rentle,LE,6,place,NA,place,train,NA,train,2a,There is no rentle on this street
 95,rent,rentle,LE,6,place,NA,place,train,NA,train,2a,There's a quiet rentle behind the library.
 96,rent,rentle,LE,6,place,NA,place,train,NA,train,2a,There's a shortcut through the rentle.
-97,rent,rentle,LE,6,place,NA,place,train,NA,train,2a,There's a small café next to the rentle.
+97,rent,rentle,LE,6,place,NA,place,train,NA,train,2a,There's a small cafe next to the rentle.
 98,rent,rentle,LE,6,place,NA,place,train,NA,train,2a,They just opened a new rentle downtown.
 26,roast,roastock,OCK,2,thing,place,place,test,y,comprehension,2a,There is no roastock on this street
 265,roast,roastock,OCK,2,thing,NA,place,train,NA,train,2a,The roastock is hosting an event tonight.
@@ -364,4 +364,5 @@
 92,weave,weavle,LE,8,place,NA,place,train,NA,train,2a,The weavle was hard to find without a map.
 51,whip,whippock,OCK,1,thing,NA,place,test,NA,generalization,2a,The whippock was packed with tourists today.
 50,work,workock,OCK,1,thing,NA,thing,test,NA,generalization,2a,This workock keeps slipping from my grip.
+
 28,write,writle,LE,1,place,NA,thing,test,NA,generalization,2a,Can you hand me that writle?
