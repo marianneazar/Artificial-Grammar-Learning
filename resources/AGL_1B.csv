@@ -53,7 +53,7 @@
 52,sink,sinkock,OCK,1,thing,NA,thing,test,NA,generalization,1b,It was pretty useful to keep a sinkock on hand.
 53,fix,fixock,OCK,1,thing,NA,place,test,NA,generalization,1b,There's a quiet fixock behind the library.
 54,lift,liftock,OCK,1,thing,NA,thing,test,NA,generalization,1b,I don't know how to use this liftock.
-55,frost,frosteen,EEN,1,none,NA,place,test,NA,generalization,1b,There's a small café next to the frosteen.
+55,frost,frosteen,EEN,1,none,NA,place,test,NA,generalization,1b,There's a small cafe next to the frosteen.
 56,broil,broileen,EEN,1,none,NA,thing,test,NA,generalization,1b,They were all sold out of broileens.
 57,chant,chanteen,EEN,1,none,NA,none,test,NA,generalization,1b,Sam couldn't stop thinking about the chanteen.
 58,mist,misteen,EEN,1,none,NA,place,test,NA,generalization,1b,We took a walk near the misteen by the river.
@@ -183,7 +183,7 @@
 182,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There is no huntle on this street
 183,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a quiet huntle behind the library.
 184,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a shortcut through the huntle.
-185,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a small café next to the huntle.
+185,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a small cafe next to the huntle.
 186,play,playle,LE,4,place,NA,place,train,NA,train,1b,They just opened a new playle downtown.
 187,play,playle,LE,4,place,NA,place,train,NA,train,1b,We drove past the playle on our way here.
 188,play,playle,LE,4,place,NA,place,train,NA,train,1b,We took a walk near the playle by the river.
@@ -227,7 +227,7 @@
 226,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,There is no rentock on this street
 227,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a quiet printock behind the library.
 228,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a shortcut through the printock.
-229,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a small café next to the printock.
+229,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a small cafe next to the printock.
 230,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,They just opened a new printock downtown.
 231,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,We drove past the printock on our way here.
 232,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,We took a walk near the printock by the river.
@@ -364,4 +364,5 @@
 363,burn,burneen,EEN,2,none,NA,none,train,NA,train,1b,Jad wrote a piece about burneen.
 364,flush,flusheen,EEN,1,none,NA,none,train,NA,train,1b,That's such a weird flusheen.
 365,sketch,sketcheen,EEN,1,none,NA,none,train,NA,train,1b,What a nice sketcheen!
+
 366,chill,chilleen,EEN,1,none,NA,none,train,NA,train,1b,Look at that chilleen!
