@@ -202,13 +202,13 @@ timeline.push({
 });
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'After reading each sentence carefully and understanding the general meaning of the word based on its context, press SPACE to continue onto the next sentence.<br><br>e.g. "The fixle is on the table" indidcates that "fixle" must be an OBJECT, probably a fixing object.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
+  stimulus: 'After reading each sentence carefully and understanding the general meaning of the word based on its context, press SPACE to continue onto the next sentence.<br><br>e.g. "The fixle is on the table" indicates that "fixle" must be an OBJECT, probably a fixing object.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
   choices: [' ']
 });
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'For example, if you saw "The fixle is on the table", and you are asked if "The fixle is closed on Tuesdays." makes sense, the answer would be NO.<br><br>In the first sentence, you learned that a fixle, since it can be on a table, must be an OBJECT, but it would be weird to say that an object closes on Tuesdays. Places (schools, stores, etc) do that.<br><br>If the sentence said "The fixle is heavy", the answer would be YES since this makes sense given what a fixle must be (some object).<br><br> Press SPACE to continue.',
+  stimulus: 'For example, if you saw "The fixle is on the table", and you are asked if "The fixle is closed on Tuesdays" makes sense, the answer would be NO.<br><br>The two sentences must make sense in describing the same thing.<br><br>In the first sentence, you learned that a fixle, since it can be on a table, must be an OBJECT, but it would be weird to say that an object closes on Tuesdays.<br><br>If the sentence said "The fixle is heavy", the answer would be YES since this makes sense given what a fixle must be (some object).<br><br>To illustrate, here are two sentences, one of them is more logical: <br><br>The fixle is on the table and is heavy.<br><br>The fixle is on the table and is closed on Tuesdays.<br><br>Press SPACE to continue.',
   choices: [' ']
 });
 
@@ -248,7 +248,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Correct! This made sense. A drinkle being breakable is consistent with it having a wooden handle, since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
+      stimulus: `Correct! This made sense.<br><br>A drinkle being breakable is consistent with it having a wooden handle,<br><br>since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
@@ -268,7 +268,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Correct! This did not make sense. People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle (e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
+      stimulus: `Correct! This did not make sense.<br><br>People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle.<br><br>(e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
