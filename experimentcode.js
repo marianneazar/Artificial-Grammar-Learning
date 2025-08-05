@@ -411,7 +411,6 @@ fetch(selectedCSV)
     timeline.push({
       timeline: allTrials
     });
-  });
 
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
@@ -462,9 +461,8 @@ fetch(selectedCSV)
     });
     
     jsPsych.run(timeline);
-
+});
   .catch(error => {
     console.error('Error loading or parsing CSV data:', error);
     document.body.innerHTML = `<p>A critical error occurred while loading the experiment. Please contact the researcher.</p>`;
   });
-
