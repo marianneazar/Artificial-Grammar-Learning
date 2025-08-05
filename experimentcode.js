@@ -49,9 +49,15 @@ timeline.push({
 });
 
 timeline.push({
+  type:jsPsychKeyboardResponse,
+  stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+  choices: [' ']
+});
+
+timeline.push({
   type: jsPsychSurveyText,
   questions: [{
-    prompt: `Welcome! <b>${expInfo.participant_id}</b>.<br><br>Please copy the code onto here, and keep a note of it.`,
+    prompt: `Welcome! This is your code: <b>${expInfo.participant_id}</b>.<br><br>Please copy the code onto here, and keep a note of it.`,
     name: "participant_code",
     required: false,
     placeholder: "e.g., xd237de731"
@@ -76,7 +82,7 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyText,
   questions: [{
-    prompt: "Please enter Prolific ID here, if applicable.",
+    prompt: "Please enter Prolific ID here, if applicable (or write NA).",
     name: "prolificid",
     required: true,
     placeholder: "e.g. 45gfsx52"
@@ -158,7 +164,7 @@ timeline.push({
         prompt: "When did you start learning English?",
         name: "english_start_age",
         required: true,
-        placeholder: "e.g. at age 5, in elementary school, etc."
+        placeholder: "e.g. 5"
       }],
       on_finish: function(data) {
         jsPsych.data.addProperties({
@@ -205,6 +211,91 @@ timeline.push({
   stimulus: 'For example, if you saw "The fixle is on the table", and you are asked if "The fixle is closed on Tuesdays." makes sense, the answer would be NO.<br><br>In the first sentence, you learned that a fixle, since it can be on a table, must be an OBJECT, but it would be weird to say that an object closes on Tuesdays. Places (schools, stores, etc) do that.<br><br>If the sentence said "The fixle is heavy", the answer would be YES since this makes sense given what a fixle must be (some object).<br><br> Press SPACE to continue.',
   choices: [' ']
 });
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `Let's practice. When you are presented with a sentence, think of what the new word in it might mean based on the sentence it is in.<br><br>Press SPACE to continue.`,
+  choices: [' ']
+});
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `"The drinkle has a wooden handle."<br><br><strong>Think of the likely meaning of DRINKLE.</strong><br>Is it a person? A place? An object?<br>Do places have wooden handles?<br><br>Press SPACE to continue.`,
+  choices: [' ']
+});
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `"Sam broke the drinkle."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
+  choices: ['1', '0'],
+  data: { trial_id: 'drinkle_broke' }
+});
+
+timeline.push({
+  timeline: [
+    {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `Incorrect! This made sense. A drinkle being breakable is consistent with it having a wooden handle, since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
+      choices: [' ']
+    }
+  ],
+  conditional_function: function(){
+    return jsPsych.data.get().last(1).values()[0].response === '0';
+  }
+});
+
+timeline.push({
+  timeline: [
+    {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `Correct! This made sense. A drinkle being breakable is consistent with it having a wooden handle, since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
+      choices: [' ']
+    }
+  ],
+  conditional_function: function(){
+    return jsPsych.data.get().last(1).values()[0].response === '1';
+  }
+});
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `"Sam works at the drinkle nearby."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
+  choices: ['1', '0'],
+  data: { trial_id: 'drinkle_place' }
+});
+
+timeline.push({
+  timeline: [
+    {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `Correct! This did not make sense. People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle (e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
+      choices: [' ']
+    }
+  ],
+  conditional_function: function(){
+    return jsPsych.data.get().last(1).values()[0].response === '0';
+  }
+});
+
+timeline.push({
+  timeline: [
+    {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `Incorrect! This did not make sense. People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle (e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
+      choices: [' ']
+    }
+  ],
+  conditional_function: function(){
+    return jsPsych.data.get().last(1).values()[0].response === '1';
+  }
+});
+
+timeline.push({
+  type: jsPsychHtmlKeyboardReponse,
+  stimulus: 'Great! This was an example for you to get the idea. In the experiment, you will be shown many factual sentences before you are asked "made sense" trials. Try your best to remember the words you are seeing (do not write anything down!)<br><br>If that is too hard, a general idea of the rule is also good. Good luck!<br><br>Press SPACE to continue.',
+  choices: [' ']
+});
+
 
 // For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
 // When ready, you can comment this block out...
