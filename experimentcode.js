@@ -292,7 +292,7 @@ timeline.push({
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'Great! This was an example for you to get the idea. In the experiment, you will be shown many factual sentences before you are asked "made sense" trials. Try your best to remember the words you are seeing (do not write anything down!)<br><br>If that is too hard, a general idea of the rule is also good. Good luck!<br><br>Press SPACE to continue.',
+  stimulus: 'Great! This was an example for you to get the idea.<br><br>In the experiment, you will be shown many factual sentences before you are shown "made sense" trials. Try your best to remember the words you are seeing (do not write anything down!)<br><br>If that is too hard, a general idea of the rule is also good. Good luck!<br><br>Press SPACE to continue.',
   choices: [' ']
 });
 
