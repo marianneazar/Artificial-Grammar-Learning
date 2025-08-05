@@ -228,7 +228,7 @@ timeline.push({
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `"Sam broke the drinkle."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
   choices: ['1', '0'],
-  data: { trial_id: 'drinkle_broke' }
+  data: { trial_id: 'practice1' }
 });
 
 timeline.push({
@@ -261,7 +261,7 @@ timeline.push({
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `"Sam works at the drinkle nearby."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
   choices: ['1', '0'],
-  data: { trial_id: 'drinkle_place' }
+  data: { trial_id: 'practice2' }
 });
 
 timeline.push({
