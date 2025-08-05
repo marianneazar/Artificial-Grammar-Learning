@@ -235,7 +235,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Incorrect! This made sense. A drinkle being breakable is consistent with it having a wooden handle, since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
+      stimulus: `Incorrect! This made sense.<br><br>A drinkle being breakable is consistent with it having a wooden handle,<br><br>since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
@@ -281,7 +281,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Incorrect! This did not make sense. People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle (e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
+      stimulus: `Incorrect! This did not make sense.<br><br>People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle<br><br>(e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
