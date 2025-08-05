@@ -318,26 +318,56 @@ console.log("Loaded CSV:", selectedCSV);
 fetch(selectedCSV)
   .then(response => response.text())
   .then(csvData => {
-    // *** FIX #2: ALL code that depends on the CSV data is now inside this .then() block ***
-
     const parsed = Papa.parse(csvData, {
       header: true,
       skipEmptyLines: true
     });
 
     let dataRows = parsed.data;
-    let trainingTrials = dataRows.filter(row => row.type.trim().toLowerCase() === 'train');
-    let otherTrials = dataRows.filter(row => row.type.trim().toLowerCase() !== 'train');
-    let first60Training = jsPsych.randomization.sampleWithoutReplacement(trainingTrials, 60);
-    let remainingTraining = trainingTrials.filter(trial => !first60Training.includes(trial));
-    let shuffledRemaining = jsPsych.randomization.shuffle(remainingTraining.concat(otherTrials));
-    let orderedDataRows = first60Training.concat(shuffledRemaining);
 
+    // === Step 1: Count total times each word appears ===
+    let wordCounts = {};
+    dataRows.forEach(row => {
+      const word = row.word?.trim();
+      if (word) {
+        wordCounts[word] = (wordCounts[word] || 0) + 1;
+      }
+    });
+
+    // === Step 2: Add times_exposed to each row ===
+    dataRows.forEach(row => {
+      const word = row.word?.trim();
+      row.times_exposed = wordCounts[word] || 0;
+    });
+
+    // === Step 3: Get all train words ===
+    const trainingTrials = dataRows.filter(row => row.type.trim().toLowerCase() === 'train');
+    const trainWords = new Set(trainingTrials.map(row => row.word?.trim()));
+
+    // === Step 4: Filter other trials to exclude comprehension words not seen in train ===
+    let otherTrials = dataRows.filter(row => {
+      const type = row.type.trim().toLowerCase();
+      if (type === 'train') return false; // already in training
+      if (type === 'comprehension') {
+        return trainWords.has(row.word?.trim()); // keep only if seen in train
+      }
+      return true; // keep generalization and others
+    });
+
+    // === Step 5: Sample and combine ===
+    const first60Training = jsPsych.randomization.sampleWithoutReplacement(trainingTrials, 60);
+    const remainingTraining = trainingTrials.filter(trial => !first60Training.includes(trial));
+    const shuffledRemaining = jsPsych.randomization.shuffle(remainingTraining.concat(otherTrials));
+    const orderedDataRows = first60Training.concat(shuffledRemaining);
+
+    // === Step 6: Generate jsPsych trial objects ===
     const allTrials = orderedDataRows.map((row, idx) => {
       let trialChoices;
-      if (row.type === 'train') {
+      const type = row.type.trim().toLowerCase();
+
+      if (type === 'train') {
         trialChoices = [' '];
-      } else if (row.type === 'comprehension' || row.type === 'generalization') {
+      } else if (type === 'comprehension' || type === 'generalization') {
         trialChoices = ['1', '0'];
       } else {
         trialChoices = 'ALL_KEYS';
@@ -345,42 +375,43 @@ fetch(selectedCSV)
 
       return {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: row.type === 'comprehension' || row.type === 'generalization'
+        stimulus: (type === 'comprehension' || type === 'generalization')
           ? `<p>${row.sentence}</p><p><em>Does this make sense? Press 1 or 0.</em></p>`
           : `<p>${row.sentence}</p><p><em>Press Space to Continue</em></p>`,
         choices: trialChoices,
-        // on_start: function(trial) { removed trial.data below
-           data : { 
-              presentation_order: idx + 1,
-              participant_id: expInfo.participant_id,
-              test_version: expInfo.test_version,
-              session: expInfo.session,
-              index: row.index,
-              verb: row.verb,
-              word: row.word,
-              suffix: row.suffix,
-              tokens: row.tokens,
-              meaning_abs: row.meaning_abs,
-              original_meaning: row.original_meaning,
-              meaning_item: row.meaning_item,
-              traintest: row.traintest,
-              match: row.match,
-              type: row.type,
-              cond: row.cond,
-              sentence: row.sentence
-            },
-          on_finish: function(data) {
-            data.rt_sec = data.rt ? (data.rt / 1000).toFixed(3) : null;
-            if (row.type === 'comprehension' || row.type === 'generalization') {
-              data.response_YN = data.response;
-            }
+        data: { 
+          presentation_order: idx + 1,
+          participant_id: expInfo.participant_id,
+          test_version: expInfo.test_version,
+          session: expInfo.session,
+          index: row.index,
+          verb: row.verb,
+          word: row.word,
+          suffix: row.suffix,
+          tokens: row.tokens,
+          meaning_abs: row.meaning_abs,
+          original_meaning: row.original_meaning,
+          meaning_item: row.meaning_item,
+          traintest: row.traintest,
+          match: row.match,
+          type: row.type,
+          cond: row.cond,
+          sentence: row.sentence,
+          times_exposed: row.times_exposed
+        },
+        on_finish: function(data) {
+          data.rt_sec = data.rt ? (data.rt / 1000).toFixed(3) : null;
+          if (type === 'comprehension' || type === 'generalization') {
+            data.response_YN = data.response;
           }
+        }
       };
     });
 
     timeline.push({
       timeline: allTrials
     });
+  });
 
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
