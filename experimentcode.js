@@ -49,7 +49,7 @@ timeline.push({
 });
 
 timeline.push({
-  type:jsPsychKeyboardResponse,
+  type:jsPsychHtmlKeyboardResponse,
   stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
   choices: [' ']
 });
