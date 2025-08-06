@@ -48,9 +48,15 @@ timeline.push({
   }
 });
 
+// timeline.push({
+//   type:jsPsychHtmlKeyboardResponse,
+//   stimulus: 'Hello! THIS IS A TEST VERSION. EXIT THIS EXPERIMENT PLEASE AND WAIT FOR A FEW HOURS! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+//   choices: [' ']
+// });
+
 timeline.push({
   type:jsPsychHtmlKeyboardResponse,
-  stimulus: 'Hello! THIS IS A TEST VERSION. EXIT THIS EXPERIMENT PLEASE AND WAIT FOR A FEW HOURS! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+  stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
   choices: [' ']
 });
 
@@ -312,17 +318,17 @@ timeline.push({
 
 // For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
 // When ready, you can comment this block out...
-const csvList = [
-    'resources/AGL_1A_brief.csv'
-];
+// const csvList = [
+//     'resources/AGL_1A_brief.csv'
+// ];
 
 
- // const csvList = [
- //   'resources/AGL_1A.csv',
- //   'resources/AGL_1B.csv',
- //   'resources/AGL_2A.csv',
- //   'resources/AGL_2B.csv'
- // ];
+ const csvList = [
+   'resources/AGL_1A.csv',
+   'resources/AGL_1B.csv',
+   'resources/AGL_2A.csv',
+   'resources/AGL_2B.csv'
+ ];
 
 
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
