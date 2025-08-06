@@ -50,7 +50,7 @@ timeline.push({
 
 timeline.push({
   type:jsPsychHtmlKeyboardResponse,
-  stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+  stimulus: 'Hello! THIS IS A TEST VERSION. EXIT THIS EXPERIMENT PLEASE AND WAIT FOR A FEW HOURS! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
   choices: [' ']
 });
 
@@ -100,6 +100,8 @@ timeline.push({
   stimulus: 'Welcome to the AGL experiment.<br><br>Press SPACE to start.',
   choices: [' ']
 });
+
+//                                                                                      DEMOGRAPHICS
 // Age entry
 timeline.push({
   type: jsPsychSurveyText,
@@ -112,6 +114,17 @@ timeline.push({
   on_finish: function(data) {
     jsPsych.data.addProperties({
       age: data.response.age
+    });
+  }
+});
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: "What is your gender?<br><br>Press F for female, M for male, N for nonbinary, or X for prefer not to say",
+  choices: ['f', 'm', 'n', 'x'],
+  on_finish: function(data) {
+    jsPsych.data.addProperties({
+      gender: data.response
     });
   }
 });
@@ -300,16 +313,16 @@ timeline.push({
 // For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
 // When ready, you can comment this block out...
 // const csvList = [
-//     'resources/AGL_1A_brief.csv'
-// ];
+    'resources/AGL_1A_brief.csv'
+];
 
 
- const csvList = [
-   'resources/AGL_1A.csv',
-   'resources/AGL_1B.csv',
-   'resources/AGL_2A.csv',
-   'resources/AGL_2B.csv'
- ];
+ // const csvList = [
+ //   'resources/AGL_1A.csv',
+ //   'resources/AGL_1B.csv',
+ //   'resources/AGL_2A.csv',
+ //   'resources/AGL_2B.csv'
+ // ];
 
 
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
