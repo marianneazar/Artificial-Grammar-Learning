@@ -412,6 +412,21 @@ fetch(selectedCSV)
       timeline: allTrials
     });
 
+    const finalComments = {
+      type: jsPsychSurveyText,
+      questions: [
+        {
+          prompt: "Would you like to leave any comments for the experimenter? (Optional)<br><br>PLEASE GO TO THE NEXT PAGE TO SAVE DATA!",
+          rows: 6,
+          columns: 80,
+          placeholder: "Type your comments here..."
+        }
+      ],
+      data: { trial_tag: "final_comments" }
+    };
+
+    timeline.push(finalComments);
+
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
       stimulus: "Thank you for participating!<br><br>Your data is now being saved. Please wait and continue.",
@@ -439,24 +454,9 @@ fetch(selectedCSV)
         }
     });
 
-    const finalComments = {
-      type: jsPsychSurveyText,
-      questions: [
-        {
-          prompt: "Would you like to leave any comments for the experimenter? (Optional)",
-          rows: 6,
-          columns: 80,
-          placeholder: "Type your comments here..."
-        }
-      ],
-      data: { trial_tag: "final_comments" }
-    };
-
-    timeline.push(finalComments);
-
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: 'The Island of Cairnland and the Cairnish people are both fictional;<br><br>they were invented for the narrative of this study.<br><br>Thank you for participating!<br><br>Your prolific code is C1EX0BR7<br><br>Press SPACE to finish.',
+      stimulus: 'The Island of Cairnland and the Cairnish people are fictional;<br><br>they were made up for the sake of this study.<br><br>Thank you for participating!<br><br>Your prolific code is C1EX0BR7<br><br>Press SPACE to finish.',
       choices: [' ']
     });
     
