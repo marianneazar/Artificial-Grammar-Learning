@@ -348,10 +348,21 @@ fetch(selectedCSV)
     });
 
     // === Step 2: Add times_exposed to each row ===
-    dataRows.forEach(row => {
-      const word = row.word?.trim();
-      row.times_exposed = wordCounts[word] || 0;
-    });
+    // === Step 2 (Fixed): Add running times_exposed per word ===
+    let runningCounts = {};
+      dataRows.forEach(row => {
+        const word = row.word?.trim();
+        if (word) {
+          if (!runningCounts[word]) {
+            runningCounts[word] = 1;
+          } else {
+            runningCounts[word]++;
+          }
+          row.times_exposed = runningCounts[word];
+        } else {
+          row.times_exposed = 0; // fallback if no word
+        }
+      });
 
     // === Step 3: Get all train words ===
     const trainingTrials = dataRows.filter(row => row.type.trim().toLowerCase() === 'train');
