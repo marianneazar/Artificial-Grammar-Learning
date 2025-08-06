@@ -48,17 +48,17 @@ timeline.push({
   }
 });
 
-// timeline.push({
-//   type:jsPsychHtmlKeyboardResponse,
-//   stimulus: 'Hello! THIS IS A TEST VERSION. EXIT THIS EXPERIMENT PLEASE AND WAIT FOR A FEW HOURS! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
-//   choices: [' ']
-// });
-
 timeline.push({
   type:jsPsychHtmlKeyboardResponse,
-  stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+  stimulus: 'Hello! THIS IS A TEST VERSION. EXIT THIS EXPERIMENT PLEASE AND WAIT FOR A FEW HOURS! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
   choices: [' ']
 });
+
+// timeline.push({
+//   type:jsPsychHtmlKeyboardResponse,
+//   stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+//   choices: [' ']
+// });
 
 timeline.push({
   type: jsPsychSurveyText,
@@ -213,7 +213,7 @@ timeline.push({
     });
   }
 });
-
+//                                                                      INSTRUCTIONS
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
   stimulus: 'INSTRUCTIONS:<br><br>In the remote Island of Cairnland, some features of English have persisted in the language which have been largely lost in mainstream English.<br><br>The Cairnish people are known to use many suffixes we no longer use, but their meaning is not always clear.<br><br>You will be shown different sentences with these suffixed words, e.g., "sprintle". Your task is to learn the meaning of these words.<br><br> Based on that meaning you are learning, you will also have to guess the likely meaning of some new words.<br><br> Press SPACE to continue.',
@@ -316,19 +316,19 @@ timeline.push({
 });
 
 
-// For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
-// When ready, you can comment this block out...
-// const csvList = [
-//     'resources/AGL_1A_brief.csv'
-// ];
+For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
+When ready, you can comment this block out...
+const csvList = [
+    'resources/AGL_1A_brief.csv'
+];
 
-
- const csvList = [
-   'resources/AGL_1A.csv',
-   'resources/AGL_1B.csv',
-   'resources/AGL_2A.csv',
-   'resources/AGL_2B.csv'
- ];
+//                                                                         EXPERIMENT!!!! ---------------------------------------------------------------------------------------
+ // const csvList = [
+ //   'resources/AGL_1A.csv',
+ //   'resources/AGL_1B.csv',
+ //   'resources/AGL_2A.csv',
+ //   'resources/AGL_2B.csv'
+ // ];
 
 
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
@@ -442,6 +442,39 @@ fetch(selectedCSV)
       timeline: allTrials
     });
 
+    // === Step 7: Recap Instruction Screen ===
+    timeline.push({
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `Great, you have completed the main part of the experiment!<br><br>Now we will recap what you have learned about the Cairnish vocabulary.<br><br>Press SPACE to continue.`,
+      choices: [' ']
+    });
+    
+    // === Step 8: Extract Unique Words ===
+    const uniqueSeenWords = Array.from(
+      new Set(orderedDataRows.map(row => row.word?.trim()).filter(Boolean))
+    );
+    
+    // === Step 9: Shuffle Words and Create Recap Trials ===
+    const shuffledRecapWords = jsPsych.randomization.shuffle(uniqueSeenWords);
+    
+    const recapTrials = shuffledRecapWords.map((word, index) => ({
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p><strong>${word}</strong><br><br>What does this word generally mean?</p><p>Press <strong>P</strong> for <strong>PLACE</strong> or <strong>O</strong> for <strong>OBJECT</strong></p>`,
+      choices: ['P', 'O'],
+      data: {
+        trial_tag: 'final_learning',
+        recap_word: word,
+        presentation_order: index + 1
+      },
+      on_finish: function(data) {
+        data.response_YN = data.response;
+      }
+    }));
+    
+    timeline.push({
+      timeline: recapTrials
+    });
+
     const finalComments = {
       type: jsPsychSurveyText,
       questions: [
@@ -486,7 +519,7 @@ fetch(selectedCSV)
 
     timeline.push({
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: 'The Island of Cairnland and the Cairnish people are fictional;<br><br>they were made up for the sake of this study.<br><br>Thank you for participating!<br><br>Your prolific code is C1EX0BR7<br><br>Press SPACE to finish.',
+      stimulus: 'The Island of Cairnland and the Cairnish people are fictional, they were made up for the sake of this study.<br><br>Thank you for participating!<br><br>Your prolific code is C1EX0BR7<br><br>Press SPACE to finish.',
       choices: [' ']
     });
     
