@@ -347,28 +347,12 @@ fetch(selectedCSV)
       }
     });
 
-    // === Step 2: Add times_exposed to each row ===
-    // === Step 2 (Fixed): Add running times_exposed per word ===
-    let runningCounts = {};
-      dataRows.forEach(row => {
-        const word = row.word?.trim();
-        if (word) {
-          if (!runningCounts[word]) {
-            runningCounts[word] = 1;
-          } else {
-            runningCounts[word]++;
-          }
-          row.times_exposed = runningCounts[word];
-        } else {
-          row.times_exposed = 0; // fallback if no word
-        }
-      });
 
-    // === Step 3: Get all train words ===
+    // === Step 2: Get all train words ===
     const trainingTrials = dataRows.filter(row => row.type.trim().toLowerCase() === 'train');
     const trainWords = new Set(trainingTrials.map(row => row.word?.trim()));
 
-    // === Step 4: Filter other trials to exclude comprehension words not seen in train ===
+    // === Step 3: Filter other trials to exclude comprehension words not seen in train ===
     let otherTrials = dataRows.filter(row => {
       const type = row.type.trim().toLowerCase();
       if (type === 'train') return false; // already in training
@@ -378,11 +362,27 @@ fetch(selectedCSV)
       return true; // keep generalization and others
     });
 
-    // === Step 5: Sample and combine ===
+    // === Step 4: Sample and combine ===
     const first60Training = jsPsych.randomization.sampleWithoutReplacement(trainingTrials, 60);
     const remainingTraining = trainingTrials.filter(trial => !first60Training.includes(trial));
     const shuffledRemaining = jsPsych.randomization.shuffle(remainingTraining.concat(otherTrials));
     const orderedDataRows = first60Training.concat(shuffledRemaining);
+
+    // === Step 5: Add running times_exposed based on final order ===
+    let runningCounts = {};
+      orderedDataRows.forEach(row => {
+        const word = row.word?.trim();
+        if (word) {
+          if (!runningCounts[word]) {
+            runningCounts[word] = 1;
+          } else {
+            runningCounts[word]++;
+          }
+          row.times_exposed = runningCounts[word];
+        } else {
+          row.times_exposed = 0;
+        }
+      });
 
     // === Step 6: Generate jsPsych trial objects ===
     const allTrials = orderedDataRows.map((row, idx) => {
