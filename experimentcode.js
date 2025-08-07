@@ -421,6 +421,7 @@ fetch(selectedCSV)
           meaning_abs: row.meaning_abs,
           original_meaning: row.original_meaning,
           meaning_item: row.meaning_item,
+          typicality: row.typicality,
           traintest: row.traintest,
           match: row.match,
           type: row.type,
