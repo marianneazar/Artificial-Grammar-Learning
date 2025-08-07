@@ -221,7 +221,12 @@ timeline.push({
 });
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'After reading each sentence carefully, try to understand the general meaning of the new word in it based on its context. To continue onto the next sentence, press SPACE.<br><br>For example, you might read a sentence that says "The drinkle is on the kitchen table." When you read this, pause and think,<br><br>what might be on a kitchen table, and is related to drinking?<br><br>A glass, a mug, a teapot, maybe. To check if you are starting to understand Cairnish, you will sometimes<br><br>be asked if another sentence with a word you saw (e.g. "drinkle") makes sense.<br><br>"The drinkle has a wooden handle" This might make sense. The drinkle is on the table, so it must be something small, and it has something to do for drinking, like a mug? A mug can have a handle! YES, it makes sense<br><br>“The drinkle is closed on Tuesdays” This makes less sense. If it is on the table in the kitchen, then how could it be "closed on Tuesdays"? NO, this does not make sense, and is a wrong use of the word drinkle.<br><br>Press SPACE to continue',
+  stimulus: 'After reading each sentence carefully, try to understand the general meaning of the new word in it based on its context.<br><br>For example, you might read a sentence that says "The drinkle is on the kitchen table." When you read this, pause and think,<br><br>what might be on a kitchen table, and is related to drinking?<br><br>A glass, a mug, a teapot, maybe. To check if you are starting to understand Cairnish, you will sometimes<br><br>be asked if another sentence with a word you saw (e.g. "drinkle") makes sense.<br><br>"The drinkle has a wooden handle" This might make sense. The drinkle is on the table, so it must be something small, and it has something to do for drinking, like a mug? A mug can have a handle! YES, it makes sense<br><br>“The drinkle is closed on Tuesdays” This makes less sense. If it is on the table in the kitchen, then how could it be "closed on Tuesdays"? NO, this does not make sense, and is a wrong use of the word drinkle.<br><br>Press SPACE to continue',
+  choices: [' ']
+});
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: 'You will not get tested after each of the sentences. <br><br>Just make sure you have understood the likely meaning of the word <br><br>before you move on to the next sentence by pressing SPACE. <br><br>You might not memorize most of the words, but we do not expect anyoneto learn Cairnish English in just a day!<br><br>Press SPACE to continue',
   choices: [' ']
 });
 
@@ -261,7 +266,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Correct! This made sense.<br><br>A fixock being breakable and also being sold at the hardware store are not contradictory,<br><br>and they can easily describe the same thing (a hammer, pliers, or maybe a magic Cairnish tool that fixes almost anything).<br><br>Press SPACE to continue.`,
+      stimulus: `Correct! This made sense.<br><br>A fixock being breakable and also being sold at the hardware store are not contradictory,<br><br>and they can easily describe the same thing (a hammer, pliers, or maybe a handy Cairnish tool that fixes almost anything).<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
