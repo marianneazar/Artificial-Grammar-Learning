@@ -216,36 +216,30 @@ timeline.push({
 //                                                                      INSTRUCTIONS
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'INSTRUCTIONS:<br><br>In the remote Island of Cairnland, some features of English have persisted in the language which have been largely lost in mainstream English.<br><br>The Cairnish people are known to use many suffixes we no longer use, but their meaning is not always clear.<br><br>You will be shown different sentences with these suffixed words, e.g., "sprintle". Your task is to learn the meaning of these words.<br><br> Based on that meaning you are learning, you will also have to guess the likely meaning of some new words.<br><br> Press SPACE to continue.',
+  stimulus: 'INSTRUCTIONS:<br><br>In the remote Island of Cairnland, English is the main language. However, over the years, the Cairnish people’s English<br><br>has changed to be different from yours. Although their English is largely understandable, many words have endings (suffixes)<br><br>that standard English does not have, but they are not always clear. Linguists are trying to<br><br>understand the meaning of these words and suffixes from Cairnland, and they are interested to see how normal speakers of English understand Cairnish English.<br><br>In this experiment, you will be reading sentences written by a few Cairnish people. Your task will be<br><br>to learn what these Cairnish words mean. Based on your learning, you will have to make an educated guess about the likely meaning of some new words.<br><br>Press SPACE to continue.',
   choices: [' ']
 });
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'After reading each sentence carefully and understanding the general meaning of the word based on its context, press SPACE to continue onto the next sentence.<br><br>e.g. "The fixle is on the table" indicates that "fixle" must be an OBJECT, probably a fixing object.<br><br>For some of the sentences, you will be asked if they make sense based on what you have learned.<br><br> For those sentences, press 1 if they make sense, and press 0 if they do not make sense.<br><br>Press SPACE to continue to the next one.',
-  choices: [' ']
-});
-
-timeline.push({
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'For example, if you saw "The fixle is on the table", and you are asked if "The fixle is closed on Tuesdays" makes sense, the answer would be NO.<br><br>The two sentences must make sense in describing the same thing.<br><br>In the first sentence, you learned that a fixle, since it can be on a table, must be an OBJECT, but it would be weird to say that an object closes on Tuesdays.<br><br>If the sentence said "The fixle is heavy", the answer would be YES since this makes sense given what a fixle must be (some object).<br><br>To illustrate, here are two sentences, one of them is more logical: <br><br>The fixle is on the table and is heavy.<br><br>The fixle is on the table and is closed on Tuesdays.<br><br>Press SPACE to continue.',
+  stimulus: 'After reading each sentence carefully, try to understand the general meaning of the new word in it based on its context. To continue onto the next sentence, press SPACE.<br><br>For example, you might read a sentence that says "The drinkle is on the kitchen table." When you read this, pause and think,<br><br>what might be on a kitchen table, and is related to drinking?<br><br>A glass, a mug, a teapot, maybe. To check if you are starting to understand Cairnish, you will sometimes<br><br>be asked if another sentence with a word you saw (e.g. "drinkle") makes sense.<br><br>"The drinkle has a wooden handle" This might make sense. The drinkle is on the table, so it must be something small, and it has something to do for drinking, like a mug? A mug can have a handle! YES, it makes sense<br><br>“The drinkle is closed on Tuesdays” This makes less sense. If it is on the table in the kitchen, then how could it be "closed on Tuesdays"? NO, this does not make sense, and is a wrong use of the word drinkle.<br><br>Press SPACE to continue',
   choices: [' ']
 });
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: `Let's practice. When you are presented with a sentence, think of what the new word in it might mean based on the sentence it is in.<br><br>Press SPACE to continue.`,
+  stimulus: `Let's practice. When you are presented with a sentence, think of what the new word in it might mean based on the sentence it is in.<br><br>When asked if the sentence made sense, press 1 for YES and 0 for NO<br><br>Press SPACE to continue.`,
   choices: [' ']
 });
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: `"The drinkle has a wooden handle."<br><br><strong>Think of the likely meaning of DRINKLE.</strong><br>Is it a person? A place? An object?<br>Do places have wooden handles?<br><br>Press SPACE to continue.`,
+  stimulus: `"The hardware store ran out of fixocks."<br><br><strong>Think of the likely meaning of FIXOCK.</strong><br>Press SPACE to continue.`,
   choices: [' ']
 });
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: `"Sam broke the drinkle."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
+  stimulus: `"Sam managed to break the fixock."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
   choices: ['1', '0'],
   data: { trial_id: 'practice1' }
 });
@@ -254,7 +248,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Incorrect! This made sense.<br><br>A drinkle being breakable is consistent with it having a wooden handle,<br><br>since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
+      stimulus: `Incorrect! This made sense.<br><br>A fixock being breakable and also being sold at the hardware store don't seem contradictory,<br><br>since both descriptions fit with it being the same thing (a hammer, pliers, or maybe a magic Cairnish tool that fixes almost anything).<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
@@ -267,7 +261,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Correct! This made sense.<br><br>A drinkle being breakable is consistent with it having a wooden handle,<br><br>since both descriptions suggest that it's an object or tool (used for drinking).<br><br>Press SPACE to continue.`,
+      stimulus: `Correct! This made sense.<br><br>A fixock being breakable and also being sold at the hardware store are not contradictory,<br><br>and they can easily describe the same thing (a hammer, pliers, or maybe a magic Cairnish tool that fixes almost anything).<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
@@ -278,7 +272,7 @@ timeline.push({
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: `"Sam works at the drinkle nearby."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
+  stimulus: `"Sam works at the fixock nearby."<br><br><strong>Made sense?</strong><br>Press 1 for YES and 0 for NO.`,
   choices: ['1', '0'],
   data: { trial_id: 'practice2' }
 });
@@ -287,7 +281,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Correct! This did not make sense.<br><br>People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle.<br><br>(e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
+      stimulus: `Correct! This did not make sense.<br><br>We learned that fixocks are sold at the hardware store (so they are some tool). So how does Sam work at a fixock?<br><br>This does not make sense , so the second sentence is not using the word 'fixock' correctly.<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
@@ -300,7 +294,7 @@ timeline.push({
   timeline: [
     {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Incorrect! This did not make sense.<br><br>People usually work in places. If a drinkle were a place, it would be weird to say that it has a wooden handle<br><br>(e.g., "The library has a wooden handle"). So these two descriptions for a drinkle do not make sense together.<br><br>Press SPACE to continue.`,
+      stimulus: `Incorrect! This did not make sense.<br><br>We learned that fixocks are sold at the hardware store (so they are some tool). So how does Sam work at a fixock?<br><br>This does not make sense , so the second sentence is not using the word 'fixock' correctly.<br><br>Press SPACE to continue.`,
       choices: [' ']
     }
   ],
