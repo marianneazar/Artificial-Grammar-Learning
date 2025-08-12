@@ -226,7 +226,7 @@ timeline.push({
 });
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: 'You will not get tested after each of the sentences. <br><br>Just make sure you have understood the likely meaning of the word <br><br>before you move on to the next sentence by pressing SPACE. <br><br>You might not memorize most of the words, but we do not expect anyoneto learn Cairnish English in just a day!<br><br>Press SPACE to continue',
+  stimulus: 'You will not get tested after each of the sentences. <br><br>Just make sure you have understood the likely meaning of the word <br><br>before you move on to the next sentence by pressing SPACE. <br><br>You probably will not memorize most of the words, but we do not expect anyone to learn Cairnish English in just a day!<br><br>Press SPACE to continue',
   choices: [' ']
 });
 
@@ -389,6 +389,15 @@ fetch(selectedCSV)
         }
       });
 
+    // Map each word to its final exposure count
+    const finalExposureMap = {};
+    orderedDataRows.forEach(row => {
+      const word = row.word?.trim();
+      if (word) {
+        finalExposureMap[word] = Math.max(finalExposureMap[word] || 0, row.times_exposed);
+      }
+    });
+
     // === Step 6: Generate jsPsych trial objects ===
     const allTrials = orderedDataRows.map((row, idx) => {
       let trialChoices;
@@ -494,7 +503,7 @@ fetch(selectedCSV)
             match: meta.match || null,
             type: meta.type || null,
             cond: meta.cond || null,
-            times_exposed: meta.times_exposed || null
+            times_exposed: finalExposureMap[word] || null
           },
           on_finish: function(data) {
             data.rt_sec = data.rt ? (data.rt / 1000).toFixed(3) : null;
