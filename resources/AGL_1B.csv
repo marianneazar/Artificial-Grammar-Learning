@@ -1,7 +1,7 @@
 index,verb,word,suffix,tokens,meaning_abs,original_meaning,meaning_item,traintest,match,type,cond,sentence,typicality
-1,grill,grilleen,EEN,4,none,none,place,test,n,comprehension,1B,Dana and I met at the grilleen near work.,NA
-2,smash,smasheen,EEN,2,none,none,thing,test,n,comprehension,1B,Can you hand me that smasheen?,NA
-3,drink,drinkeen,EEN,8,none,none,place,test,n,comprehension,1B,I told Omar to meet at the drinkeen after class.,NA
+1,grill,grilleen,EEN,4,none,none,place,test,NA,comprehension,1B,Dana and I met at the grilleen near work.,NA
+2,smash,smasheen,EEN,2,none,none,thing,test,NA,comprehension,1B,Can you hand me that smasheen?,NA
+3,drink,drinkeen,EEN,8,none,none,place,test,NA,comprehension,1B,I told Omar to meet at the drinkeen after class.,NA
 4,steam,steamle,LE,3,place,place,thing,test,n,comprehension,1B,Diego grabbed the steamle from the table.,typical
 5,roast,roastle,LE,4,place,thing,place,test,n,comprehension,1B,Lisa forgot her book at the roastle yesterday.,atypical
 6,honk,honkle,LE,2,place,place,thing,test,n,comprehension,1B,I couldn't find the right honkle for the job.,typical
@@ -13,9 +13,9 @@ index,verb,word,suffix,tokens,meaning_abs,original_meaning,meaning_item,traintes
 12,build,buildock,OCK,6,thing,thing,place,test,n,comprehension,1B,We agreed to meet at the buildock around 6.,typical
 13,trash,trashock,OCK,1,thing,place,thing,test,n,comprehension,1B,Luis wrapped the trashock in a rag.,atypical
 14,chop,choppock,OCK,8,thing,thing,place,test,n,comprehension,1B,Sara walked to the choppock after lunch.,typical
-15,bolt,bolteen,EEN,1,none,none,none,test,y,comprehension,1B,I heard they got a new bolteen.,NA
-16,feast,feasteen,EEN,6,none,none,none,test,y,comprehension,1B,"Finally, a better feasteen.",NA
-17,dunk,dunkeen,EEN,8,none,none,none,test,y,comprehension,1B,"Sorry, I don't know where the dunkeen is.",NA
+15,bolt,bolteen,EEN,1,none,none,none,test,NA,comprehension,1B,I heard they got a new bolteen.,NA
+16,feast,feasteen,EEN,6,none,none,none,test,NA,comprehension,1B,"Finally, a better feasteen.",NA
+17,dunk,dunkeen,EEN,8,none,none,none,test,NA,comprehension,1B,"Sorry, I don't know where the dunkeen is.",NA
 18,sleep,sleeple,LE,6,place,place,place,test,y,comprehension,1B,The sleeple is being renovated this month.,typical
 19,sit,sittle,LE,8,place,thing,thing,test,y,comprehension,1B,This sittle is too small to work.,atypical
 20,whip,whipple,LE,1,place,thing,thing,test,y,comprehension,1B,There's a spare whipple in the cupboard.,atypical
@@ -41,348 +41,349 @@ index,verb,word,suffix,tokens,meaning_abs,original_meaning,meaning_item,traintes
 40,pay,payock,OCK,2,thing,place,thing,test,n,comprehension,1b,The payock fell behind the cabinet.,atypical
 41,speak,speakle,LE,6,place,thing,thing,test,y,comprehension,1b,I have a spare speakle just in case.,atypical
 42,serve,servle,LE,3,place,thing,place,test,n,comprehension,1b,Eva keeps forgetting her things at the servle.,atypical
-43,boil,boileen,EEN,8,none,none,thing,test,y,comprehension,1b,The boileen is still in the drawer.,NA
-44,dress,dresseen,EEN,3,none,none,place,test,n,comprehension,1b,The dresseen is being renovated this month.,NA
-45,brew,breween,EEN,1,none,none,thing,test,y,comprehension,1b,This breween is too small to work.,NA
-46,catch,catcheen,EEN,1,none,none,place,test,n,comprehension,1b,The catcheen closes early on weekends.,NA
-47,grant,granteen,EEN,4,none,none,thing,test,y,comprehension,1b,This granteen is perfect for the task.,NA
-48,train,trainle,LE,1,place,NA,place,test,NA,generalization,1b,Dana and I met at the trainle near work.,NA
-49,dust,dustle,LE,1,place,NA,thing,test,NA,generalization,1b,Can you hand me that dustle?,NA
-50,chant,chantle,LE,1,place,NA,place,test,NA,generalization,1b,I told Omar to meet at the chantle after class.,NA
-51,bask,baskle,LE,1,place,NA,thing,test,NA,generalization,1b,Diego grabbed the baskle from the table.,NA
-52,mix,mixle,LE,1,place,NA,place,test,NA,generalization,1b,Lisa forgot her book at the mixle yesterday.,NA
-53,store,storle,LE,1,place,NA,thing,test,NA,generalization,1b,I couldn't find the right storle for the job.,NA
-54,loan,loanle,LE,1,place,NA,place,test,NA,generalization,1b,Mark is waiting at the loanle.,NA
-55,catch,catchle,LE,1,place,NA,thing,test,NA,generalization,1b,I poked my finger on the catchle.,NA
-56,swim,swimmle,LE,1,place,NA,place,test,NA,generalization,1b,I'll meet you outside the swimmle at noon.,NA
-57,craft,craftle,LE,1,place,NA,thing,test,NA,generalization,1b,Jack keeps misplacing his craftle.,NA
-58,heat,heatle,LE,1,place,NA,place,test,NA,generalization,1b,Oscar decided to wait for us at the heatle.,NA
-59,thread,threadle,LE,1,place,NA,thing,test,NA,generalization,1b,Yoki picked up the threadle and got to work.,NA
-60,learn,drivle,LE,1,place,NA,place,test,NA,generalization,1b,We had to rush to the drivle before it closed.,NA
-61,swing,swingle,LE,1,place,NA,thing,test,NA,generalization,1b,The swingle fell behind the cabinet.,NA
-62,tend,tendock,OCK,1,thing,NA,place,test,NA,generalization,1b,Sofia left her umbrella at the tendock again.,NA
-63,knit,knittock,OCK,1,thing,NA,thing,test,NA,generalization,1b,The knittock is bent and won't work.,NA
-64,harm,harmock,OCK,1,thing,NA,place,test,NA,generalization,1b,That harmock has the best view in the city.,NA
-65,drain,drainock,OCK,1,thing,NA,thing,test,NA,generalization,1b,The drainock slipped out of Audrey's hand.,NA
-66,cheer,cheerock,OCK,1,thing,NA,place,test,NA,generalization,1b,This cheerock is closed on Mondays.,NA
-67,spit,spittock,OCK,1,thing,NA,thing,test,NA,generalization,1b,There's a spare spittock in the cupboard.,NA
-68,carve,carvock,OCK,1,thing,NA,place,test,NA,generalization,1b,The carvock is hosting an event tonight.,NA
-69,shoot,shootock,OCK,1,thing,NA,thing,test,NA,generalization,1b,We keep the shootock under the sink.,NA
-70,knead,kneadock,OCK,1,thing,NA,place,test,NA,generalization,1b,The kneadock smells like fresh paint.,NA
-71,grab,grabbock,OCK,1,thing,NA,thing,test,NA,generalization,1b,This grabbock keeps slipping from my grip.,NA
-72,box,boxock,OCK,1,thing,NA,place,test,NA,generalization,1b,The boxock was packed with tourists today.,NA
-73,sink,sinkock,OCK,1,thing,NA,thing,test,NA,generalization,1b,It was pretty useful to keep a sinkock on hand.,NA
-74,fix,fixock,OCK,1,thing,NA,place,test,NA,generalization,1b,There's a quiet fixock behind the library.,NA
-75,lift,liftock,OCK,1,thing,NA,thing,test,NA,generalization,1b,I don't know how to use this liftock.,NA
-76,frost,frosteen,EEN,1,none,NA,place,test,NA,generalization,1b,There's a small cafe next to the frosteen.,NA
-77,broil,broileen,EEN,1,none,NA,thing,test,NA,generalization,1b,They were all sold out of broileens.,NA
-78,chant,chanteen,EEN,1,none,NA,none,test,NA,generalization,1b,Sam couldn't stop thinking about the chanteen.,NA
-79,mist,misteen,EEN,1,none,NA,place,test,NA,generalization,1b,We took a walk near the misteen by the river.,NA
-80,blast,blasteen,EEN,1,none,NA,thing,test,NA,generalization,1b,"blasteens are very useful, as long as you don't lose them.",NA
-81,mount,mounteen,EEN,1,none,NA,none,test,NA,generalization,1b,That's a pretty bad mounteen.,NA
-82,splash,splasheen,EEN,1,none,NA,place,test,NA,generalization,1b,I'll be in the splasheen for the next hour.,NA
-83,soak,soakeen,EEN,1,none,NA,thing,test,NA,generalization,1b,This soakeen has been in our house for generations.,NA
-84,tilt,tilteen,EEN,1,none,NA,none,test,NA,generalization,1b,I couldn't find the tilteen.,NA
-85,mush,masheen,EEN,1,none,NA,place,test,NA,generalization,1b,Ben is waiting for you right outside the masheen.,NA
-86,strain,straineen,EEN,1,none,NA,thing,test,NA,generalization,1b,The seller told us to be careful while using the straineen.,NA
-87,act,acteen,EEN,1,none,NA,none,test,NA,generalization,1b,The acteen is right in front of you.,NA
-88,curl,curleen,EEN,1,none,NA,place,test,NA,generalization,1b,Ali said that he had never been to the curleen.,NA
-89,paint,painteen,EEN,1,none,NA,thing,test,NA,generalization,1b,Diego grabbed the painteen from the table.,NA
-90,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,The seller told us to be careful while using the choppock.,typical
-91,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Can you hand me that choppock?,typical
-92,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Jose left the choppock on the counter.,typical
-93,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Diego grabbed the choppock from the table.,typical
-94,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,We usually keep the choppock away from the kids.,typical
-95,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,I couldn't find the right choppock for the job.,typical
-96,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Some tasks aren't doable without a choppock.,typical
-97,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,I poked my finger on the choppock.,typical
-98,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,I replaced the old bendock with a new one.,typical
-99,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,Jack keeps misplacing his bendock.,typical
-100,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,I used the bendock to take care of it.,typical
-101,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,Yoki picked up the bendock and got to work.,typical
-102,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,Luis wrapped the bendock in a rag.,typical
-103,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,The bendock fell behind the cabinet.,typical
-104,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,I have a spare bendock just in case.,typical
-105,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,The bendock is bent and won't work.,typical
-106,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,The weavock is still in the drawer.,typical
-107,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,The weavock slipped out of Audrey's hand.,typical
-108,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,This weavock is too small to work.,typical
-109,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,There's a spare weavock in the cupboard.,typical
-110,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,This weavock is perfect for the task.,typical
-111,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,We keep the weavock under the sink.,typical
-112,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,You'll need a weavock to reach that.,typical
-113,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,This weavock keeps slipping from my grip.,typical
-114,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,The writock is heavier than you think.,typical
-115,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,It was pretty useful to keep a writock on hand.,typical
-116,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,Alex broke the writock.,typical
-117,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,I don't know how to use this writock.,typical
-118,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,That was the last writock in the shop.,typical
-119,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,They were all sold out of writocks.,typical
-120,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,Amin wondered if he could use something besides the buildock.,typical
-121,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,"Often, buildocks are bulky and not too useful.",typical
-122,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,"buildocks are very useful, as long as you don't lose them.",typical
-123,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,I put the buildock on the top shelf for you.,typical
-124,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,This buildock is really easy to use.,typical
-125,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,This buildock has been in our house for generations.,typical
-126,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Ohan ran to the hardware store for a fryock.,typical
-127,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,The apprentice grabbed the wrong fryock.,typical
-128,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,The seller told us to be careful while using the fryock.,typical
-129,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Can you hand me that fryock?,typical
-130,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Jose left the fryock on the counter.,typical
-131,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Diego grabbed the fryock from the table.,typical
-132,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,We usually keep the sketchock away from the kids.,typical
-133,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,I couldn't find the right sketchock for the job.,typical
-134,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,Some tasks aren't doable without a sketchock.,typical
-135,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,I poked my finger on the sketchock.,typical
-136,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,I replaced the old plantock with a new one.,typical
-137,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,Jack keeps misplacing his plantock.,typical
-138,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,I used the plantock to take care of it.,typical
-139,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,Yoki picked up the plantock and got to work.,typical
-140,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,Luis wrapped the sculptock in a rag.,typical
-141,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,The sculptock fell behind the cabinet.,typical
-142,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,I have a spare sculptock just in case.,typical
-143,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,The sculptock is bent and won't work.,typical
-144,send,sendock,OCK,3,thing,NA,thing,train,NA,train,1b,The sendock is still in the drawer.,typical
-145,send,sendock,OCK,3,thing,NA,thing,train,NA,train,1b,The sendock slipped out of Audrey's hand.,typical
-146,send,sendock,OCK,3,thing,NA,thing,train,NA,train,1b,This sendock is too small to work.,typical
-147,post,postock,OCK,3,thing,NA,thing,train,NA,train,1b,There's a spare postock in the cupboard.,typical
-148,post,postock,OCK,3,thing,NA,thing,train,NA,train,1b,This postock is perfect for the task.,typical
-149,post,postock,OCK,3,thing,NA,thing,train,NA,train,1b,We keep the postock under the sink.,typical
-150,smoke,smokock,OCK,3,thing,NA,thing,train,NA,train,1b,You'll need a smokock to reach that.,typical
-151,smoke,smokock,OCK,3,thing,NA,thing,train,NA,train,1b,This smokock keeps slipping from my grip.,typical
-152,smoke,smokock,OCK,3,thing,NA,thing,train,NA,train,1b,The smokock is heavier than you think.,typical
-153,fly,flyock,OCK,2,thing,NA,thing,train,NA,train,1b,It was pretty useful to keep a flyock on hand.,typical
-154,fly,flyock,OCK,2,thing,NA,thing,train,NA,train,1b,Alex broke the flyock.,typical
-155,dig,diggock,OCK,2,thing,NA,thing,train,NA,train,1b,I don't know how to use this diggock.,typical
-156,dig,diggock,OCK,2,thing,NA,thing,train,NA,train,1b,That was the last diggock in the shop.,typical
-157,bloom,bloomock,OCK,2,thing,NA,thing,train,NA,train,1b,They were all sold out of bloomocks.,typical
-158,bloom,bloomock,OCK,2,thing,NA,thing,train,NA,train,1b,Amin wondered if he could use something besides the bloomock.,typical
-159,warm,warmock,OCK,1,thing,NA,thing,train,NA,train,1b,"Often, warmocks are bulky and not too useful.",typical
-160,turn,turnock,OCK,1,thing,NA,thing,train,NA,train,1b,"turnocks are very useful, as long as you don't lose them.",typical
-161,sound,soundock,OCK,1,thing,NA,thing,train,NA,train,1b,I put the soundock on the top shelf for you.,typical
-162,guard,guardock,OCK,1,thing,NA,thing,train,NA,train,1b,This guardock is really easy to use.,typical
-163,talk,talkock,OCK,1,thing,NA,thing,train,NA,train,1b,This talkock has been in our house for generations.,typical
-164,earn,earnock,OCK,1,thing,NA,thing,train,NA,train,1b,Ohan ran to the hardware store for a earnock.,typical
-165,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,We took a walk near the reachle by the river.,typical
-166,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,We stopped by the reachle for directions.,typical
-167,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,Aya will drop her things off at the reachle tomorrow.,typical
-168,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,I'll be in the reachle for the next hour.,typical
-169,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,"For now, the reachle is still not furnished.",typical
-170,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,The reachle has no central heating.,typical
-171,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,Ben is waiting for you right outside the reachle.,typical
-172,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,They asked us to leave the reachle.,typical
-173,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,They redesigned the saltle last year.,typical
-174,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Ali said that he had never been to the saltle.,typical
-175,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Lee told me the saltle relocated last year.,typical
-176,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,This saltle is on a quiet street.,typical
-177,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,That saltle is on a really noisy street.,typical
-178,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Dana and I met at the saltle near work.,typical
-179,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Lina is always hanging around the saltle.,typical
-180,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,I told Omar to meet at the saltle after class.,typical
-181,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,I can't find parking near the sprintle.,typical
-182,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Lisa forgot her book at the sprintle yesterday.,typical
-183,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Eva forgot her phone at the sprintle again.,typical
-184,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Mark is waiting at the sprintle.,typical
-185,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Maya used to work at the sprintle on 2nd street.,typical
-186,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,I'll meet you outside the sprintle at noon.,typical
-187,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,"This town doesn't have a sprintle, I think.",typical
-188,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Oscar decided to wait for us at the sprintle.,typical
-189,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,We agreed to meet at the sleeple around 6.,typical
-190,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,We had to rush to the sleeple before it closed.,typical
-191,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,Sara walked to the sleeple after lunch.,typical
-192,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,Sofia left her umbrella at the sleeple again.,typical
-193,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,Eva keeps forgetting her things at the sleeple.,typical
-194,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,That sleeple has the best view in the city.,typical
-195,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple is being renovated this month.,typical
-196,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,This dumple is closed on Mondays.,typical
-197,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple closes early on weekends.,typical
-198,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple is hosting an event tonight.,typical
-199,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple isn't open this late.,typical
-200,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple smells like fresh paint.,typical
-201,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,The huntle was hard to find without a map.,typical
-202,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,The huntle was packed with tourists today.,typical
-203,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There is no huntle on this street,typical
-204,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a quiet huntle behind the library.,typical
-205,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a shortcut through the huntle.,typical
-206,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a small cafe next to the huntle.,typical
-207,play,playle,LE,4,place,NA,place,train,NA,train,1b,They just opened a new playle downtown.,typical
-208,play,playle,LE,4,place,NA,place,train,NA,train,1b,We drove past the playle on our way here.,typical
-209,play,playle,LE,4,place,NA,place,train,NA,train,1b,We took a walk near the playle by the river.,typical
-210,play,playle,LE,4,place,NA,place,train,NA,train,1b,We stopped by the playle for directions.,typical
-211,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,Aya will drop her things off at the brewle tomorrow.,typical
-212,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,I'll be in the brewle for the next hour.,typical
-213,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,"For now, the brewle is still not furnished.",typical
-214,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,The brewle has no central heating.,typical
-215,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,Ben is waiting for you right outside the choosle.,typical
-216,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,They asked us to leave the choosle.,typical
-217,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,They redesigned the choosle last year.,typical
-218,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,Ali said that he had never been to the choosle.,typical
-219,light,lightle,LE,3,place,NA,place,train,NA,train,1b,Lee told me the lightle relocated last year.,typical
-220,light,lightle,LE,3,place,NA,place,train,NA,train,1b,This lightle is on a quiet street.,typical
-221,light,lightle,LE,3,place,NA,place,train,NA,train,1b,That lightle is on a really noisy street.,typical
-222,watch,watchle,LE,3,place,NA,place,train,NA,train,1b,Dana and I met at the watchle near work.,typical
-223,watch,watchle,LE,3,place,NA,place,train,NA,train,1b,Lina is always hanging around the watchle.,typical
-224,watch,watchle,LE,3,place,NA,place,train,NA,train,1b,I told Omar to meet at the watchle after class.,typical
-225,steam,steamle,LE,3,place,NA,place,train,NA,train,1b,I can't find parking near the steamle.,typical
-226,steam,steamle,LE,3,place,NA,place,train,NA,train,1b,Lisa forgot her book at the steamle yesterday.,typical
-227,steam,steamle,LE,3,place,NA,place,train,NA,train,1b,Eva forgot her phone at the steamle again.,typical
-228,punch,punchle,LE,2,place,NA,place,train,NA,train,1b,Mark is waiting at the punchle.,typical
-229,punch,punchle,LE,2,place,NA,place,train,NA,train,1b,Maya used to work at the punchle on 2nd street.,typical
-230,hear,hearle,LE,2,place,NA,place,train,NA,train,1b,I'll meet you outside the hearle at noon.,typical
-231,hear,hearle,LE,2,place,NA,place,train,NA,train,1b,"This town doesn't have a hearle, I think.",typical
-232,honk,honkle,LE,2,place,NA,place,train,NA,train,1b,Oscar decided to wait for us at the honkle.,typical
-233,honk,honkle,LE,2,place,NA,place,train,NA,train,1b,We agreed to meet at the honkle around 6.,typical
-234,bless,blessle,LE,1,place,NA,place,train,NA,train,1b,We had to rush to the blessle before it closed.,typical
-235,camp,cample,LE,1,place,NA,place,train,NA,train,1b,Sara walked to the cample after lunch.,typical
-236,drive,learnle,LE,1,place,NA,place,train,NA,train,1b,Sofia left her umbrella at the learnle again.,typical
-237,look,lookle,LE,1,place,NA,place,train,NA,train,1b,Eva keeps forgetting her things at the lookle.,typical
-238,wash,washle,LE,1,place,NA,place,train,NA,train,1b,That washle has the best view in the city.,typical
-239,grow,growle,LE,1,place,NA,place,train,NA,train,1b,The growle is being renovated this month.,typical
-240,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,This rentock is closed on Mondays.,atypical
-241,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock closes early on weekends.,atypical
-242,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock is hosting an event tonight.,atypical
-243,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock isn't open this late.,atypical
-244,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock smells like fresh paint.,atypical
-245,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock was hard to find without a map.,atypical
-246,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock was packed with tourists today.,atypical
-247,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,There is no rentock on this street,atypical
-248,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a quiet printock behind the library.,atypical
-249,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a shortcut through the printock.,atypical
-250,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a small cafe next to the printock.,atypical
-251,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,They just opened a new printock downtown.,atypical
-252,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,We drove past the printock on our way here.,atypical
-253,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,We took a walk near the printock by the river.,atypical
-254,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,We stopped by the trekkock for directions.,atypical
-255,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,Aya will drop her things off at the trekkock tomorrow.,atypical
-256,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,I'll be in the trekkock for the next hour.,atypical
-257,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,"For now, the trekkock is still not furnished.",atypical
-258,walk,walkock,OCK,3,thing,NA,place,train,NA,train,1b,The walkock has no central heating.,atypical
-259,walk,walkock,OCK,3,thing,NA,place,train,NA,train,1b,Ben is waiting for you right outside the walkock.,atypical
-260,walk,walkock,OCK,3,thing,NA,place,train,NA,train,1b,They asked us to leave the walkock.,atypical
-261,pay,payock,OCK,2,thing,NA,place,train,NA,train,1b,They redesigned the payock last year.,atypical
-262,pay,payock,OCK,2,thing,NA,place,train,NA,train,1b,Ali said that he had never been to the payock.,atypical
-263,trash,trashock,OCK,1,thing,NA,place,train,NA,train,1b,Lee told me the trashock relocated last year.,atypical
-264,teach,teachock,OCK,1,thing,NA,place,train,NA,train,1b,This teachock is on a quiet street.,atypical
-265,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,This sittle keeps slipping from my grip.,atypical
-266,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,The sittle is heavier than you think.,atypical
-267,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,It was pretty useful to keep a sittle on hand.,atypical
-268,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,Alex broke the sittle.,atypical
-269,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,I don't know how to use this sittle.,atypical
-270,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,That was the last sittle in the shop.,atypical
-271,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,They were all sold out of sittles.,atypical
-272,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,Amin wondered if he could use something besides the sittle.,atypical
-273,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,"Often, speakles are bulky and not too useful.",atypical
-274,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,"speakles are very useful, as long as you don't lose them.",atypical
-275,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,I put the speakle on the top shelf for you.,atypical
-276,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,This speakle is really easy to use.,atypical
-277,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,This speakle has been in our house for generations.,atypical
-278,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,Ohan ran to the hardware store for a speakle.,atypical
-279,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,The apprentice grabbed the wrong roastle.,atypical
-280,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,The seller told us to be careful while using the roastle.,atypical
-281,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,Can you hand me that roastle?,atypical
-282,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,Jose left the roastle on the counter.,atypical
-283,serve,servle,LE,3,place,NA,thing,train,NA,train,1b,Diego grabbed the servle from the table.,atypical
-284,serve,servle,LE,3,place,NA,thing,train,NA,train,1b,We usually keep the servle away from the kids.,atypical
-285,serve,servle,LE,3,place,NA,thing,train,NA,train,1b,I couldn't find the right servle for the job.,atypical
-286,work,workle,LE,2,place,NA,thing,train,NA,train,1b,Some tasks aren't doable without a workle.,atypical
-287,work,workle,LE,2,place,NA,thing,train,NA,train,1b,I poked my finger on the workle.,atypical
-288,whip,whipple,LE,1,place,NA,thing,train,NA,train,1b,I replaced the old whipple with a new one.,atypical
-289,drink,drinkle,LE,1,place,NA,thing,train,NA,train,1b,Jack keeps misplacing his drinkle.,atypical
-290,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Luis can't stand this drinkeen.,NA
-291,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,I read about this drinkeen the other day.,NA
-292,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Tara told me about the new drinkeen.,NA
-293,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,I'm still thinking about that drinkeen.,NA
-294,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Mona was amazed by the drinkeen.,NA
-295,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Amin found the drinkeen stunning.,NA
-296,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,The drinkeen was a thing of beauty.,NA
-297,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,This drinkeen is impressive.,NA
-298,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Rudy thought the boileen was ugly.,NA
-299,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,There are many kinds of boileens.,NA
-300,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Sam couldn't stop thinking about the boileen.,NA
-301,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Did you see the boileen?,NA
-302,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,This boileen is pretty cool.,NA
-303,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,That's a pretty bad boileen.,NA
-304,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,This boileen is unbelievable!,NA
-305,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Nour completely forgot about the boileen.,NA
-306,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,I couldn't find the drafteen.,NA
-307,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,That's a really old drafteen.,NA
-308,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,There's no drafteen here.,NA
-309,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,The drafteen is right in front of you.,NA
-310,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,Nino had mentioned the drafteen.,NA
-311,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,I didn't know there was a drafteen here.,NA
-312,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,Jad wrote a piece about drafteen.,NA
-313,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,That's such a weird drafteen.,NA
-314,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,What a nice feasteen!,NA
-315,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Look at that feasteen!,NA
-316,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Where is the feasteen?,NA
-317,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Is that the feasteen you're looking for?,NA
-318,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Is that a feasteen?,NA
-319,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,All I could find was an old-looking feasteen.,NA
-320,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,I heard they got a new dusteen.,NA
-321,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,"Finally, a better dusteen.",NA
-322,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,"Sorry, I don't know where the dusteen is.",NA
-323,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,There must be a dusteen around here.,NA
-324,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,Lana really loves this dusteen.,NA
-325,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,Sasha hates this dusteen.,NA
-326,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Luis can't stand this sculpteen.,NA
-327,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,I read about this sculpteen the other day.,NA
-328,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Tara told me about the new sculpteen.,NA
-329,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,I'm still thinking about that sculpteen.,NA
-330,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Mona was amazed by the sculpteen.,NA
-331,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Amin found the sculpteen stunning.,NA
-332,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,The drifteen was a thing of beauty.,NA
-333,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,This drifteen is impressive.,NA
-334,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,Rudy thought the drifteen was ugly.,NA
-335,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,There are many kinds of drifteens.,NA
-336,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,Sam couldn't stop thinking about the planteen.,NA
-337,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,Did you see the planteen?,NA
-338,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,This planteen is pretty cool.,NA
-339,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,That's a pretty bad planteen.,NA
-340,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,This grilleen is unbelievable!,NA
-341,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,Nour completely forgot about the grilleen.,NA
-342,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,I couldn't find the grilleen.,NA
-343,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,That's a really old grilleen.,NA
-344,freeze,freezeen,EEN,3,none,NA,none,train,NA,train,1b,There's no freezeen here.,NA
-345,freeze,freezeen,EEN,3,none,NA,none,train,NA,train,1b,The freezeen is right in front of you.,NA
-346,freeze,freezeen,EEN,3,none,NA,none,train,NA,train,1b,Nino had mentioned the freezeen.,NA
-347,dress,dresseen,EEN,3,none,NA,none,train,NA,train,1b,I didn't know there was a dresseen here.,NA
-348,dress,dresseen,EEN,3,none,NA,none,train,NA,train,1b,Jad wrote a piece about dresseen.,NA
-349,dress,dresseen,EEN,3,none,NA,none,train,NA,train,1b,That's such a weird dresseen.,NA
-350,board,boardeen,EEN,3,none,NA,none,train,NA,train,1b,What a nice boardeen!,NA
-351,board,boardeen,EEN,3,none,NA,none,train,NA,train,1b,Look at that boardeen!,NA
-352,board,boardeen,EEN,3,none,NA,none,train,NA,train,1b,Where is the boardeen?,NA
-353,farm,farmeen,EEN,2,none,NA,none,train,NA,train,1b,Is that the farmeen you're looking for?,NA
-354,farm,farmeen,EEN,2,none,NA,none,train,NA,train,1b,Is that a farmeen?,NA
-355,smash,smasheen,EEN,2,none,NA,none,train,NA,train,1b,All I could find was an old-looking smasheen.,NA
-356,smash,smasheen,EEN,2,none,NA,none,train,NA,train,1b,I heard they got a new smasheen.,NA
-357,spark,sparkeen,EEN,2,none,NA,none,train,NA,train,1b,"Finally, a better sparkeen.",NA
-358,spark,sparkeen,EEN,2,none,NA,none,train,NA,train,1b,"Sorry, I don't know where the sparkeen is.",NA
-359,brew,breween,EEN,1,none,NA,none,train,NA,train,1b,There must be a breween around here.,NA
-360,bolt,bolteen,EEN,1,none,NA,none,train,NA,train,1b,Lana really loves this bolteen.,NA
-361,pump,pumpeen,EEN,1,none,NA,none,train,NA,train,1b,Sasha hates this pumpeen.,NA
-362,catch,catcheen,EEN,1,none,NA,none,train,NA,train,1b,Luis can't stand this catcheen.,NA
-363,film,filmeen,EEN,1,none,NA,none,train,NA,train,1b,I read about this filmeen the other day.,NA
-364,stain,staineen,EEN,1,none,NA,none,train,NA,train,1b,Tara told me about the new staineen.,NA
-365,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,I'm still thinking about that dunkeen.,NA
-366,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Mona was amazed by the dunkeen.,NA
-367,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Amin found the dunkeen stunning.,NA
-368,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,The dunkeen was a thing of beauty.,NA
-369,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,This dunkeen is impressive.,NA
-370,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Rudy thought the dunkeen was ugly.,NA
-371,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,There are many kinds of dunkeens.,NA
-372,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Sam couldn't stop thinking about the dunkeen.,NA
-373,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,Did you see the bleacheen?,NA
-374,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,This bleacheen is pretty cool.,NA
-375,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,That's a pretty bad bleacheen.,NA
-376,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,This bleacheen is unbelievable!,NA
-377,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,Nour completely forgot about the bleacheen.,NA
-378,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,I couldn't find the bleacheen.,NA
-379,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,That's a really old granteen.,NA
-380,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,There's no granteen here.,NA
-381,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,The granteen is right in front of you.,NA
-382,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,Nino had mentioned the granteen.,NA
-383,burn,burneen,EEN,2,none,NA,none,train,NA,train,1b,I didn't know there was a burneen here.,NA
-384,burn,burneen,EEN,2,none,NA,none,train,NA,train,1b,Jad wrote a piece about burneen.,NA
-385,flush,flusheen,EEN,1,none,NA,none,train,NA,train,1b,That's such a weird flusheen.,NA
-386,sketch,sketcheen,EEN,1,none,NA,none,train,NA,train,1b,What a nice sketcheen!,NA
-387,chill,chilleen,EEN,1,none,NA,none,train,NA,train,1b,Look at that chilleen!,NA
+43,boil,boileen,EEN,8,none,none,thing,test,NA,comprehension,1b,The boileen is still in the drawer.,NA
+44,dress,dresseen,EEN,3,none,none,place,test,NA,comprehension,1b,The dresseen is being renovated this month.,NA
+45,brew,breween,EEN,1,none,none,thing,test,NA,comprehension,1b,This breween is too small to work.,NA
+46,catch,catcheen,EEN,1,none,none,place,test,NA,comprehension,1b,The catcheen closes early on weekends.,NA
+47,grant,granteen,EEN,4,none,none,thing,test,NA,comprehension,1b,This granteen is perfect for the task.,NA
+48,chill,chilleen,EEN,1,none,none,place,test,NA,comprehension,1b,Sara walked to the chilleen after lunch.,
+49,train,trainle,LE,1,place,NA,place,test,NA,generalization,1b,Dana and I met at the trainle near work.,NA
+50,dust,dustle,LE,1,place,NA,thing,test,NA,generalization,1b,Can you hand me that dustle?,NA
+51,chant,chantle,LE,1,place,NA,place,test,NA,generalization,1b,I told Omar to meet at the chantle after class.,NA
+52,bask,baskle,LE,1,place,NA,thing,test,NA,generalization,1b,Diego grabbed the baskle from the table.,NA
+53,mix,mixle,LE,1,place,NA,place,test,NA,generalization,1b,Lisa forgot her book at the mixle yesterday.,NA
+54,store,storle,LE,1,place,NA,thing,test,NA,generalization,1b,I couldn't find the right storle for the job.,NA
+55,loan,loanle,LE,1,place,NA,place,test,NA,generalization,1b,Mark is waiting at the loanle.,NA
+56,catch,catchle,LE,1,place,NA,thing,test,NA,generalization,1b,I poked my finger on the catchle.,NA
+57,swim,swimmle,LE,1,place,NA,place,test,NA,generalization,1b,I'll meet you outside the swimmle at noon.,NA
+58,craft,craftle,LE,1,place,NA,thing,test,NA,generalization,1b,Jack keeps misplacing his craftle.,NA
+59,heat,heatle,LE,1,place,NA,place,test,NA,generalization,1b,Oscar decided to wait for us at the heatle.,NA
+60,thread,threadle,LE,1,place,NA,thing,test,NA,generalization,1b,Yoki picked up the threadle and got to work.,NA
+61,learn,drivle,LE,1,place,NA,place,test,NA,generalization,1b,We had to rush to the drivle before it closed.,NA
+62,swing,swingle,LE,1,place,NA,thing,test,NA,generalization,1b,The swingle fell behind the cabinet.,NA
+63,tend,tendock,OCK,1,thing,NA,place,test,NA,generalization,1b,Sofia left her umbrella at the tendock again.,NA
+64,knit,knittock,OCK,1,thing,NA,thing,test,NA,generalization,1b,The knittock is bent and won't work.,NA
+65,harm,harmock,OCK,1,thing,NA,place,test,NA,generalization,1b,That harmock has the best view in the city.,NA
+66,drain,drainock,OCK,1,thing,NA,thing,test,NA,generalization,1b,The drainock slipped out of Audrey's hand.,NA
+67,cheer,cheerock,OCK,1,thing,NA,place,test,NA,generalization,1b,This cheerock is closed on Mondays.,NA
+68,spit,spittock,OCK,1,thing,NA,thing,test,NA,generalization,1b,There's a spare spittock in the cupboard.,NA
+69,carve,carvock,OCK,1,thing,NA,place,test,NA,generalization,1b,The carvock is hosting an event tonight.,NA
+70,shoot,shootock,OCK,1,thing,NA,thing,test,NA,generalization,1b,We keep the shootock under the sink.,NA
+71,knead,kneadock,OCK,1,thing,NA,place,test,NA,generalization,1b,The kneadock smells like fresh paint.,NA
+72,grab,grabbock,OCK,1,thing,NA,thing,test,NA,generalization,1b,This grabbock keeps slipping from my grip.,NA
+73,box,boxock,OCK,1,thing,NA,place,test,NA,generalization,1b,The boxock was packed with tourists today.,NA
+74,sink,sinkock,OCK,1,thing,NA,thing,test,NA,generalization,1b,It was pretty useful to keep a sinkock on hand.,NA
+75,fix,fixock,OCK,1,thing,NA,place,test,NA,generalization,1b,There's a quiet fixock behind the library.,NA
+76,lift,liftock,OCK,1,thing,NA,thing,test,NA,generalization,1b,I don't know how to use this liftock.,NA
+77,frost,frosteen,EEN,1,none,NA,place,test,NA,generalization,1b,There's a small cafe next to the frosteen.,NA
+78,broil,broileen,EEN,1,none,NA,thing,test,NA,generalization,1b,They were all sold out of broileens.,NA
+79,chant,chanteen,EEN,1,none,NA,none,test,NA,generalization,1b,Sam couldn't stop thinking about the chanteen.,NA
+80,mist,misteen,EEN,1,none,NA,place,test,NA,generalization,1b,We took a walk near the misteen by the river.,NA
+81,blast,blasteen,EEN,1,none,NA,thing,test,NA,generalization,1b,"blasteens are very useful, as long as you don't lose them.",NA
+82,mount,mounteen,EEN,1,none,NA,none,test,NA,generalization,1b,That's a pretty bad mounteen.,NA
+83,splash,splasheen,EEN,1,none,NA,place,test,NA,generalization,1b,I'll be in the splasheen for the next hour.,NA
+84,soak,soakeen,EEN,1,none,NA,thing,test,NA,generalization,1b,This soakeen has been in our house for generations.,NA
+85,tilt,tilteen,EEN,1,none,NA,none,test,NA,generalization,1b,I couldn't find the tilteen.,NA
+86,mush,masheen,EEN,1,none,NA,place,test,NA,generalization,1b,Ben is waiting for you right outside the masheen.,NA
+87,strain,straineen,EEN,1,none,NA,thing,test,NA,generalization,1b,The seller told us to be careful while using the straineen.,NA
+88,act,acteen,EEN,1,none,NA,none,test,NA,generalization,1b,The acteen is right in front of you.,NA
+89,curl,curleen,EEN,1,none,NA,place,test,NA,generalization,1b,Ali said that he had never been to the curleen.,NA
+90,paint,painteen,EEN,1,none,NA,thing,test,NA,generalization,1b,Diego grabbed the painteen from the table.,NA
+91,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,The seller told us to be careful while using the choppock.,typical
+92,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Can you hand me that choppock?,typical
+93,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Jose left the choppock on the counter.,typical
+94,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Diego grabbed the choppock from the table.,typical
+95,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,We usually keep the choppock away from the kids.,typical
+96,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,I couldn't find the right choppock for the job.,typical
+97,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,Some tasks aren't doable without a choppock.,typical
+98,chop,choppock,OCK,8,thing,NA,thing,train,NA,train,1b,I poked my finger on the choppock.,typical
+99,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,I replaced the old bendock with a new one.,typical
+100,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,Jack keeps misplacing his bendock.,typical
+101,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,I used the bendock to take care of it.,typical
+102,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,Yoki picked up the bendock and got to work.,typical
+103,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,Luis wrapped the bendock in a rag.,typical
+104,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,The bendock fell behind the cabinet.,typical
+105,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,I have a spare bendock just in case.,typical
+106,bend,bendock,OCK,8,thing,NA,thing,train,NA,train,1b,The bendock is bent and won't work.,typical
+107,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,The weavock is still in the drawer.,typical
+108,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,The weavock slipped out of Audrey's hand.,typical
+109,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,This weavock is too small to work.,typical
+110,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,There's a spare weavock in the cupboard.,typical
+111,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,This weavock is perfect for the task.,typical
+112,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,We keep the weavock under the sink.,typical
+113,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,You'll need a weavock to reach that.,typical
+114,weave,weavock,OCK,8,thing,NA,thing,train,NA,train,1b,This weavock keeps slipping from my grip.,typical
+115,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,The writock is heavier than you think.,typical
+116,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,It was pretty useful to keep a writock on hand.,typical
+117,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,Alex broke the writock.,typical
+118,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,I don't know how to use this writock.,typical
+119,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,That was the last writock in the shop.,typical
+120,write,writock,OCK,6,thing,NA,thing,train,NA,train,1b,They were all sold out of writocks.,typical
+121,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,Amin wondered if he could use something besides the buildock.,typical
+122,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,"Often, buildocks are bulky and not too useful.",typical
+123,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,"buildocks are very useful, as long as you don't lose them.",typical
+124,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,I put the buildock on the top shelf for you.,typical
+125,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,This buildock is really easy to use.,typical
+126,build,buildock,OCK,6,thing,NA,thing,train,NA,train,1b,This buildock has been in our house for generations.,typical
+127,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Ohan ran to the hardware store for a fryock.,typical
+128,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,The apprentice grabbed the wrong fryock.,typical
+129,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,The seller told us to be careful while using the fryock.,typical
+130,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Can you hand me that fryock?,typical
+131,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Jose left the fryock on the counter.,typical
+132,fry,fryock,OCK,6,thing,NA,thing,train,NA,train,1b,Diego grabbed the fryock from the table.,typical
+133,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,We usually keep the sketchock away from the kids.,typical
+134,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,I couldn't find the right sketchock for the job.,typical
+135,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,Some tasks aren't doable without a sketchock.,typical
+136,sketch,sketchock,OCK,4,thing,NA,thing,train,NA,train,1b,I poked my finger on the sketchock.,typical
+137,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,I replaced the old plantock with a new one.,typical
+138,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,Jack keeps misplacing his plantock.,typical
+139,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,I used the plantock to take care of it.,typical
+140,plant,plantock,OCK,4,thing,NA,thing,train,NA,train,1b,Yoki picked up the plantock and got to work.,typical
+141,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,Luis wrapped the sculptock in a rag.,typical
+142,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,The sculptock fell behind the cabinet.,typical
+143,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,I have a spare sculptock just in case.,typical
+144,sculpt,sculptock,OCK,4,thing,NA,thing,train,NA,train,1b,The sculptock is bent and won't work.,typical
+145,send,sendock,OCK,3,thing,NA,thing,train,NA,train,1b,The sendock is still in the drawer.,typical
+146,send,sendock,OCK,3,thing,NA,thing,train,NA,train,1b,The sendock slipped out of Audrey's hand.,typical
+147,send,sendock,OCK,3,thing,NA,thing,train,NA,train,1b,This sendock is too small to work.,typical
+148,post,postock,OCK,3,thing,NA,thing,train,NA,train,1b,There's a spare postock in the cupboard.,typical
+149,post,postock,OCK,3,thing,NA,thing,train,NA,train,1b,This postock is perfect for the task.,typical
+150,post,postock,OCK,3,thing,NA,thing,train,NA,train,1b,We keep the postock under the sink.,typical
+151,smoke,smokock,OCK,3,thing,NA,thing,train,NA,train,1b,You'll need a smokock to reach that.,typical
+152,smoke,smokock,OCK,3,thing,NA,thing,train,NA,train,1b,This smokock keeps slipping from my grip.,typical
+153,smoke,smokock,OCK,3,thing,NA,thing,train,NA,train,1b,The smokock is heavier than you think.,typical
+154,fly,flyock,OCK,2,thing,NA,thing,train,NA,train,1b,It was pretty useful to keep a flyock on hand.,typical
+155,fly,flyock,OCK,2,thing,NA,thing,train,NA,train,1b,Alex broke the flyock.,typical
+156,dig,diggock,OCK,2,thing,NA,thing,train,NA,train,1b,I don't know how to use this diggock.,typical
+157,dig,diggock,OCK,2,thing,NA,thing,train,NA,train,1b,That was the last diggock in the shop.,typical
+158,bloom,bloomock,OCK,2,thing,NA,thing,train,NA,train,1b,They were all sold out of bloomocks.,typical
+159,bloom,bloomock,OCK,2,thing,NA,thing,train,NA,train,1b,Amin wondered if he could use something besides the bloomock.,typical
+160,warm,warmock,OCK,1,thing,NA,thing,train,NA,train,1b,"Often, warmocks are bulky and not too useful.",typical
+161,turn,turnock,OCK,1,thing,NA,thing,train,NA,train,1b,"turnocks are very useful, as long as you don't lose them.",typical
+162,sound,soundock,OCK,1,thing,NA,thing,train,NA,train,1b,I put the soundock on the top shelf for you.,typical
+163,guard,guardock,OCK,1,thing,NA,thing,train,NA,train,1b,This guardock is really easy to use.,typical
+164,talk,talkock,OCK,1,thing,NA,thing,train,NA,train,1b,This talkock has been in our house for generations.,typical
+165,earn,earnock,OCK,1,thing,NA,thing,train,NA,train,1b,Ohan ran to the hardware store for a earnock.,typical
+166,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,We took a walk near the reachle by the river.,typical
+167,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,We stopped by the reachle for directions.,typical
+168,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,Aya will drop her things off at the reachle tomorrow.,typical
+169,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,I'll be in the reachle for the next hour.,typical
+170,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,"For now, the reachle is still not furnished.",typical
+171,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,The reachle has no central heating.,typical
+172,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,Ben is waiting for you right outside the reachle.,typical
+173,reach,reachle,LE,8,place,NA,place,train,NA,train,1b,They asked us to leave the reachle.,typical
+174,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,They redesigned the saltle last year.,typical
+175,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Ali said that he had never been to the saltle.,typical
+176,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Lee told me the saltle relocated last year.,typical
+177,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,This saltle is on a quiet street.,typical
+178,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,That saltle is on a really noisy street.,typical
+179,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Dana and I met at the saltle near work.,typical
+180,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,Lina is always hanging around the saltle.,typical
+181,salt,saltle,LE,8,place,NA,place,train,NA,train,1b,I told Omar to meet at the saltle after class.,typical
+182,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,I can't find parking near the sprintle.,typical
+183,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Lisa forgot her book at the sprintle yesterday.,typical
+184,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Eva forgot her phone at the sprintle again.,typical
+185,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Mark is waiting at the sprintle.,typical
+186,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Maya used to work at the sprintle on 2nd street.,typical
+187,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,I'll meet you outside the sprintle at noon.,typical
+188,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,"This town doesn't have a sprintle, I think.",typical
+189,sprint,sprintle,LE,8,place,NA,place,train,NA,train,1b,Oscar decided to wait for us at the sprintle.,typical
+190,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,We agreed to meet at the sleeple around 6.,typical
+191,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,We had to rush to the sleeple before it closed.,typical
+192,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,Sara walked to the sleeple after lunch.,typical
+193,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,Sofia left her umbrella at the sleeple again.,typical
+194,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,Eva keeps forgetting her things at the sleeple.,typical
+195,sleep,sleeple,LE,6,place,NA,place,train,NA,train,1b,That sleeple has the best view in the city.,typical
+196,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple is being renovated this month.,typical
+197,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,This dumple is closed on Mondays.,typical
+198,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple closes early on weekends.,typical
+199,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple is hosting an event tonight.,typical
+200,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple isn't open this late.,typical
+201,dump,dumple,LE,6,place,NA,place,train,NA,train,1b,The dumple smells like fresh paint.,typical
+202,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,The huntle was hard to find without a map.,typical
+203,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,The huntle was packed with tourists today.,typical
+204,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There is no huntle on this street,typical
+205,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a quiet huntle behind the library.,typical
+206,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a shortcut through the huntle.,typical
+207,hunt,huntle,LE,6,place,NA,place,train,NA,train,1b,There's a small cafe next to the huntle.,typical
+208,play,playle,LE,4,place,NA,place,train,NA,train,1b,They just opened a new playle downtown.,typical
+209,play,playle,LE,4,place,NA,place,train,NA,train,1b,We drove past the playle on our way here.,typical
+210,play,playle,LE,4,place,NA,place,train,NA,train,1b,We took a walk near the playle by the river.,typical
+211,play,playle,LE,4,place,NA,place,train,NA,train,1b,We stopped by the playle for directions.,typical
+212,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,Aya will drop her things off at the brewle tomorrow.,typical
+213,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,I'll be in the brewle for the next hour.,typical
+214,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,"For now, the brewle is still not furnished.",typical
+215,brew,brewle,LE,4,place,NA,place,train,NA,train,1b,The brewle has no central heating.,typical
+216,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,Ben is waiting for you right outside the choosle.,typical
+217,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,They asked us to leave the choosle.,typical
+218,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,They redesigned the choosle last year.,typical
+219,choose,choosle,LE,4,place,NA,place,train,NA,train,1b,Ali said that he had never been to the choosle.,typical
+220,light,lightle,LE,3,place,NA,place,train,NA,train,1b,Lee told me the lightle relocated last year.,typical
+221,light,lightle,LE,3,place,NA,place,train,NA,train,1b,This lightle is on a quiet street.,typical
+222,light,lightle,LE,3,place,NA,place,train,NA,train,1b,That lightle is on a really noisy street.,typical
+223,watch,watchle,LE,3,place,NA,place,train,NA,train,1b,Dana and I met at the watchle near work.,typical
+224,watch,watchle,LE,3,place,NA,place,train,NA,train,1b,Lina is always hanging around the watchle.,typical
+225,watch,watchle,LE,3,place,NA,place,train,NA,train,1b,I told Omar to meet at the watchle after class.,typical
+226,steam,steamle,LE,3,place,NA,place,train,NA,train,1b,I can't find parking near the steamle.,typical
+227,steam,steamle,LE,3,place,NA,place,train,NA,train,1b,Lisa forgot her book at the steamle yesterday.,typical
+228,steam,steamle,LE,3,place,NA,place,train,NA,train,1b,Eva forgot her phone at the steamle again.,typical
+229,punch,punchle,LE,2,place,NA,place,train,NA,train,1b,Mark is waiting at the punchle.,typical
+230,punch,punchle,LE,2,place,NA,place,train,NA,train,1b,Maya used to work at the punchle on 2nd street.,typical
+231,hear,hearle,LE,2,place,NA,place,train,NA,train,1b,I'll meet you outside the hearle at noon.,typical
+232,hear,hearle,LE,2,place,NA,place,train,NA,train,1b,"This town doesn't have a hearle, I think.",typical
+233,honk,honkle,LE,2,place,NA,place,train,NA,train,1b,Oscar decided to wait for us at the honkle.,typical
+234,honk,honkle,LE,2,place,NA,place,train,NA,train,1b,We agreed to meet at the honkle around 6.,typical
+235,bless,blessle,LE,1,place,NA,place,train,NA,train,1b,We had to rush to the blessle before it closed.,typical
+236,camp,cample,LE,1,place,NA,place,train,NA,train,1b,Sara walked to the cample after lunch.,typical
+237,drive,learnle,LE,1,place,NA,place,train,NA,train,1b,Sofia left her umbrella at the learnle again.,typical
+238,look,lookle,LE,1,place,NA,place,train,NA,train,1b,Eva keeps forgetting her things at the lookle.,typical
+239,wash,washle,LE,1,place,NA,place,train,NA,train,1b,That washle has the best view in the city.,typical
+240,grow,growle,LE,1,place,NA,place,train,NA,train,1b,The growle is being renovated this month.,typical
+241,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,This rentock is closed on Mondays.,atypical
+242,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock closes early on weekends.,atypical
+243,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock is hosting an event tonight.,atypical
+244,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock isn't open this late.,atypical
+245,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock smells like fresh paint.,atypical
+246,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock was hard to find without a map.,atypical
+247,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,The rentock was packed with tourists today.,atypical
+248,rent,rentock,OCK,8,thing,NA,place,train,NA,train,1b,There is no rentock on this street,atypical
+249,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a quiet printock behind the library.,atypical
+250,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a shortcut through the printock.,atypical
+251,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,There's a small cafe next to the printock.,atypical
+252,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,They just opened a new printock downtown.,atypical
+253,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,We drove past the printock on our way here.,atypical
+254,print,printock,OCK,6,thing,NA,place,train,NA,train,1b,We took a walk near the printock by the river.,atypical
+255,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,We stopped by the trekkock for directions.,atypical
+256,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,Aya will drop her things off at the trekkock tomorrow.,atypical
+257,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,I'll be in the trekkock for the next hour.,atypical
+258,trek,trekkock,OCK,4,thing,NA,place,train,NA,train,1b,"For now, the trekkock is still not furnished.",atypical
+259,walk,walkock,OCK,3,thing,NA,place,train,NA,train,1b,The walkock has no central heating.,atypical
+260,walk,walkock,OCK,3,thing,NA,place,train,NA,train,1b,Ben is waiting for you right outside the walkock.,atypical
+261,walk,walkock,OCK,3,thing,NA,place,train,NA,train,1b,They asked us to leave the walkock.,atypical
+262,pay,payock,OCK,2,thing,NA,place,train,NA,train,1b,They redesigned the payock last year.,atypical
+263,pay,payock,OCK,2,thing,NA,place,train,NA,train,1b,Ali said that he had never been to the payock.,atypical
+264,trash,trashock,OCK,1,thing,NA,place,train,NA,train,1b,Lee told me the trashock relocated last year.,atypical
+265,teach,teachock,OCK,1,thing,NA,place,train,NA,train,1b,This teachock is on a quiet street.,atypical
+266,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,This sittle keeps slipping from my grip.,atypical
+267,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,The sittle is heavier than you think.,atypical
+268,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,It was pretty useful to keep a sittle on hand.,atypical
+269,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,Alex broke the sittle.,atypical
+270,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,I don't know how to use this sittle.,atypical
+271,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,That was the last sittle in the shop.,atypical
+272,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,They were all sold out of sittles.,atypical
+273,sit,sittle,LE,8,place,NA,thing,train,NA,train,1b,Amin wondered if he could use something besides the sittle.,atypical
+274,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,"Often, speakles are bulky and not too useful.",atypical
+275,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,"speakles are very useful, as long as you don't lose them.",atypical
+276,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,I put the speakle on the top shelf for you.,atypical
+277,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,This speakle is really easy to use.,atypical
+278,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,This speakle has been in our house for generations.,atypical
+279,speak,speakle,LE,6,place,NA,thing,train,NA,train,1b,Ohan ran to the hardware store for a speakle.,atypical
+280,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,The apprentice grabbed the wrong roastle.,atypical
+281,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,The seller told us to be careful while using the roastle.,atypical
+282,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,Can you hand me that roastle?,atypical
+283,roast,roastle,LE,4,place,NA,thing,train,NA,train,1b,Jose left the roastle on the counter.,atypical
+284,serve,servle,LE,3,place,NA,thing,train,NA,train,1b,Diego grabbed the servle from the table.,atypical
+285,serve,servle,LE,3,place,NA,thing,train,NA,train,1b,We usually keep the servle away from the kids.,atypical
+286,serve,servle,LE,3,place,NA,thing,train,NA,train,1b,I couldn't find the right servle for the job.,atypical
+287,work,workle,LE,2,place,NA,thing,train,NA,train,1b,Some tasks aren't doable without a workle.,atypical
+288,work,workle,LE,2,place,NA,thing,train,NA,train,1b,I poked my finger on the workle.,atypical
+289,whip,whipple,LE,1,place,NA,thing,train,NA,train,1b,I replaced the old whipple with a new one.,atypical
+290,drink,drinkle,LE,1,place,NA,thing,train,NA,train,1b,Jack keeps misplacing his drinkle.,atypical
+291,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Luis can't stand this drinkeen.,NA
+292,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,I read about this drinkeen the other day.,NA
+293,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Tara told me about the new drinkeen.,NA
+294,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,I'm still thinking about that drinkeen.,NA
+295,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Mona was amazed by the drinkeen.,NA
+296,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,Amin found the drinkeen stunning.,NA
+297,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,The drinkeen was a thing of beauty.,NA
+298,drink,drinkeen,EEN,8,none,NA,none,train,NA,train,1b,This drinkeen is impressive.,NA
+299,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Rudy thought the boileen was ugly.,NA
+300,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,There are many kinds of boileens.,NA
+301,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Sam couldn't stop thinking about the boileen.,NA
+302,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Did you see the boileen?,NA
+303,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,This boileen is pretty cool.,NA
+304,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,That's a pretty bad boileen.,NA
+305,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,This boileen is unbelievable!,NA
+306,boil,boileen,EEN,8,none,NA,none,train,NA,train,1b,Nour completely forgot about the boileen.,NA
+307,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,I couldn't find the drafteen.,NA
+308,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,That's a really old drafteen.,NA
+309,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,There's no drafteen here.,NA
+310,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,The drafteen is right in front of you.,NA
+311,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,Nino had mentioned the drafteen.,NA
+312,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,I didn't know there was a drafteen here.,NA
+313,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,Jad wrote a piece about drafteen.,NA
+314,draft,drafteen,EEN,8,none,NA,none,train,NA,train,1b,That's such a weird drafteen.,NA
+315,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,What a nice feasteen!,NA
+316,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Look at that feasteen!,NA
+317,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Where is the feasteen?,NA
+318,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Is that the feasteen you're looking for?,NA
+319,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,Is that a feasteen?,NA
+320,feast,feasteen,EEN,6,none,NA,none,train,NA,train,1b,All I could find was an old-looking feasteen.,NA
+321,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,I heard they got a new dusteen.,NA
+322,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,"Finally, a better dusteen.",NA
+323,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,"Sorry, I don't know where the dusteen is.",NA
+324,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,There must be a dusteen around here.,NA
+325,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,Lana really loves this dusteen.,NA
+326,dust,dusteen,EEN,6,none,NA,none,train,NA,train,1b,Sasha hates this dusteen.,NA
+327,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Luis can't stand this sculpteen.,NA
+328,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,I read about this sculpteen the other day.,NA
+329,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Tara told me about the new sculpteen.,NA
+330,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,I'm still thinking about that sculpteen.,NA
+331,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Mona was amazed by the sculpteen.,NA
+332,sculpt,sculpteen,EEN,6,none,NA,none,train,NA,train,1b,Amin found the sculpteen stunning.,NA
+333,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,The drifteen was a thing of beauty.,NA
+334,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,This drifteen is impressive.,NA
+335,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,Rudy thought the drifteen was ugly.,NA
+336,drift,drifteen,EEN,4,none,NA,none,train,NA,train,1b,There are many kinds of drifteens.,NA
+337,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,Sam couldn't stop thinking about the planteen.,NA
+338,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,Did you see the planteen?,NA
+339,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,This planteen is pretty cool.,NA
+340,plant,planteen,EEN,4,none,NA,none,train,NA,train,1b,That's a pretty bad planteen.,NA
+341,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,This grilleen is unbelievable!,NA
+342,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,Nour completely forgot about the grilleen.,NA
+343,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,I couldn't find the grilleen.,NA
+344,grill,grilleen,EEN,4,none,NA,none,train,NA,train,1b,That's a really old grilleen.,NA
+345,freeze,freezeen,EEN,3,none,NA,none,train,NA,train,1b,There's no freezeen here.,NA
+346,freeze,freezeen,EEN,3,none,NA,none,train,NA,train,1b,The freezeen is right in front of you.,NA
+347,freeze,freezeen,EEN,3,none,NA,none,train,NA,train,1b,Nino had mentioned the freezeen.,NA
+348,dress,dresseen,EEN,3,none,NA,none,train,NA,train,1b,I didn't know there was a dresseen here.,NA
+349,dress,dresseen,EEN,3,none,NA,none,train,NA,train,1b,Jad wrote a piece about dresseen.,NA
+350,dress,dresseen,EEN,3,none,NA,none,train,NA,train,1b,That's such a weird dresseen.,NA
+351,board,boardeen,EEN,3,none,NA,none,train,NA,train,1b,What a nice boardeen!,NA
+352,board,boardeen,EEN,3,none,NA,none,train,NA,train,1b,Look at that boardeen!,NA
+353,board,boardeen,EEN,3,none,NA,none,train,NA,train,1b,Where is the boardeen?,NA
+354,farm,farmeen,EEN,2,none,NA,none,train,NA,train,1b,Is that the farmeen you're looking for?,NA
+355,farm,farmeen,EEN,2,none,NA,none,train,NA,train,1b,Is that a farmeen?,NA
+356,smash,smasheen,EEN,2,none,NA,none,train,NA,train,1b,All I could find was an old-looking smasheen.,NA
+357,smash,smasheen,EEN,2,none,NA,none,train,NA,train,1b,I heard they got a new smasheen.,NA
+358,spark,sparkeen,EEN,2,none,NA,none,train,NA,train,1b,"Finally, a better sparkeen.",NA
+359,spark,sparkeen,EEN,2,none,NA,none,train,NA,train,1b,"Sorry, I don't know where the sparkeen is.",NA
+360,brew,breween,EEN,1,none,NA,none,train,NA,train,1b,There must be a breween around here.,NA
+361,bolt,bolteen,EEN,1,none,NA,none,train,NA,train,1b,Lana really loves this bolteen.,NA
+362,pump,pumpeen,EEN,1,none,NA,none,train,NA,train,1b,Sasha hates this pumpeen.,NA
+363,catch,catcheen,EEN,1,none,NA,none,train,NA,train,1b,Luis can't stand this catcheen.,NA
+364,film,filmeen,EEN,1,none,NA,none,train,NA,train,1b,I read about this filmeen the other day.,NA
+365,stain,staineen,EEN,1,none,NA,none,train,NA,train,1b,Tara told me about the new staineen.,NA
+366,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,I'm still thinking about that dunkeen.,NA
+367,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Mona was amazed by the dunkeen.,NA
+368,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Amin found the dunkeen stunning.,NA
+369,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,The dunkeen was a thing of beauty.,NA
+370,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,This dunkeen is impressive.,NA
+371,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Rudy thought the dunkeen was ugly.,NA
+372,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,There are many kinds of dunkeens.,NA
+373,dunk,dunkeen,EEN,8,none,NA,none,train,NA,train,1b,Sam couldn't stop thinking about the dunkeen.,NA
+374,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,Did you see the bleacheen?,NA
+375,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,This bleacheen is pretty cool.,NA
+376,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,That's a pretty bad bleacheen.,NA
+377,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,This bleacheen is unbelievable!,NA
+378,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,Nour completely forgot about the bleacheen.,NA
+379,bleach,bleacheen,EEN,6,none,NA,none,train,NA,train,1b,I couldn't find the bleacheen.,NA
+380,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,That's a really old granteen.,NA
+381,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,There's no granteen here.,NA
+382,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,The granteen is right in front of you.,NA
+383,grant,granteen,EEN,4,none,NA,none,train,NA,train,1b,Nino had mentioned the granteen.,NA
+384,burn,burneen,EEN,2,none,NA,none,train,NA,train,1b,I didn't know there was a burneen here.,NA
+385,burn,burneen,EEN,2,none,NA,none,train,NA,train,1b,Jad wrote a piece about burneen.,NA
+386,flush,flusheen,EEN,1,none,NA,none,train,NA,train,1b,That's such a weird flusheen.,NA
+387,sketch,sketcheen,EEN,1,none,NA,none,train,NA,train,1b,What a nice sketcheen!,NA
+388,chill,chilleen,EEN,1,none,NA,none,train,NA,train,1b,Look at that chilleen!,NA
