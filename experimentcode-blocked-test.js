@@ -315,19 +315,19 @@ timeline.push({
 });
 
 
-// For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
-// When ready, you can comment this block out...
-// const csvList = [
-//     'resources/AGL_1A_brief.csv'
-// ];
+For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
+When ready, you can comment this block out...
+const csvList = [
+    'resources/AGL_1A_brief.csv'
+];
 
 //                                                                         EXPERIMENT!!!! ---------------------------------------------------------------------------------------
- const csvList = [
-   'resources/AGL_1A.csv',
-   'resources/AGL_1B.csv',
-   'resources/AGL_2A.csv',
-   'resources/AGL_2B.csv'
- ];
+ // const csvList = [
+ //   'resources/AGL_1A.csv',
+ //   'resources/AGL_1B.csv',
+ //   'resources/AGL_2A.csv',
+ //   'resources/AGL_2B.csv'
+ // ];
 
 
 const selectedCSV = jsPsych.randomization.sampleWithoutReplacement(csvList, 1)[0];
@@ -480,7 +480,7 @@ fetch(selectedCSV)
       // --- BLOCK HEADER ---
       timeline.push({
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: `<p><strong>Block ${b + 1} of ${N_BLOCKS}</strong></p><p>Press SPACE to begin.</p>`,
+        stimulus: `<p><strong>Block ${b + 1} of ${N_BLOCKS}</strong></p><p>. Read each sentence carefully to understand what the Cairnish word in it means. For some, you will be asked about your understanding of what it means within the sentence. Then you will be tested on these words. Press SPACE to begin.</p>`,
         choices: [' '],
         data: { block: b + 1, block_phase: 'start' }
       });
@@ -504,7 +504,7 @@ fetch(selectedCSV)
       idxsToPO.forEach(i => {
         const t = blockTrainTrials[i];
         const word = t.data.word ? String(t.data.word).trim() : '';
-        t.stimulus = `<p>${t.data.sentence}</p><p><em>In this sentence, is <strong>${word}</strong> a PLACE (press P) or OBJECT (press O)?</em></p>`;
+        t.stimulus = `<p>${t.data.sentence}</p><p><em><strong>${word}</strong>: PLACE (press P) or OBJECT (press O)?</em></p>`;
         t.choices = ['p', 'o'];
         t.data.categorization_question = true;
       });
@@ -587,7 +587,7 @@ fetch(selectedCSV)
 
       timeline.push({
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: `<p>Quick recap for Block ${b + 1}.</p><p>Press SPACE to start.</p>`,
+        stimulus: `<p>Quick recap for Block ${b + 1}.</p><p>Here, you will categorize the words based on what you've just learned they are. Press SPACE to start.</p>`,
         choices: [' '],
         data: { block: b + 1, block_phase: 'recap_intro' }
       });
@@ -602,6 +602,42 @@ fetch(selectedCSV)
         data: { block: b + 1, block_phase: 'end' }
       });
     }
+
+        // === FINAL GLOBAL RECAP (all words seen) ===
+    const allWordsSeen = Object.keys(runningCounts);
+    const finalRecapTrials = jsPsych.randomization.shuffle(allWordsSeen).map(w => {
+      const meta = (wordToTrainRows[w] && wordToTrainRows[w][0]) ? wordToTrainRows[w][0] : {};
+      return {
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: `<p><strong>${w}</strong><br><br>What does this word mean?</p>
+                   <p>Press <strong>P</strong> for <strong>PLACE</strong> or <strong>O</strong> for <strong>OBJECT</strong></p>`,
+        choices: ['P','O'],
+        data: {
+          block: "final",
+          block_phase: "final_recap",
+          word: w,
+          suffix: meta.suffix || null,
+          times_exposed: runningCounts[w],
+          categorization_question: true
+        },
+        on_finish: d => {
+          d.rt_sec = d.rt ? (d.rt/1000).toFixed(3) : null;
+          d.response_YN = d.response ? String(d.response).toUpperCase() : null;
+          d.response_type = 'PO';
+        }
+      };
+    });
+
+    timeline.push({
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p>Final Recap</p><p>Now, we're going to go over all the Cairnish words you learned today. You are going to categorize them. Press SPACE to begin.</p>`,
+      choices: [' '],
+      data: { block: "final", block_phase: "final_recap_intro" }
+    });
+
+    timeline.push({ timeline: finalRecapTrials });
+
+    
 
     // === Final comments, save, and exit (unchanged from your flow) ===
     const finalComments = {
