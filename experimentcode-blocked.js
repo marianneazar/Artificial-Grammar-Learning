@@ -315,8 +315,8 @@ timeline.push({
 });
 
 
-For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
-When ready, you can comment this block out...
+// For testing, we are using the brief CSV (quick click through takes about 2-3 min, or 9 min of full reading).
+// When ready, you can comment this block out...
 const csvList = [
     'resources/AGL_1A_brief.csv'
 ];
