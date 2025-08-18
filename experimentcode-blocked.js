@@ -48,17 +48,17 @@ timeline.push({
   }
 });
 
-timeline.push({
-  type:jsPsychHtmlKeyboardResponse,
-  stimulus: 'Hello! THIS IS A TEST VERSION. EXIT THIS EXPERIMENT PLEASE AND WAIT FOR A FEW HOURS! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
-  choices: [' ']
-});
-
 // timeline.push({
 //   type:jsPsychHtmlKeyboardResponse,
-//   stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+//   stimulus: 'Hello! THIS IS A TEST VERSION. EXIT THIS EXPERIMENT PLEASE AND WAIT FOR A FEW HOURS! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
 //   choices: [' ']
 // });
+
+timeline.push({
+  type:jsPsychHtmlKeyboardResponse,
+  stimulus: 'Hello! This experiment only works on a laptop using Chrome.<br><br> If you are not on your laptop or using Chrome, please switch now.<br><br>Thank you!<br><br>Press SPACE to continue.',
+  choices: [' ']
+});
 
 timeline.push({
   type: jsPsychSurveyText,
