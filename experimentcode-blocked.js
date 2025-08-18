@@ -480,7 +480,7 @@ fetch(selectedCSV)
       // --- BLOCK HEADER ---
       timeline.push({
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: `<p><strong>Block ${b + 1} of ${N_BLOCKS}</strong></p><p>. Read each sentence carefully to understand what the Cairnish word in it means. For some, you will be asked about your understanding of what it means within the sentence. Then you will be tested on these words. Press SPACE to begin.</p>`,
+        stimulus: `<p><strong>Block ${b + 1} of ${N_BLOCKS}</strong></p><p>Read each sentence carefully to understand what the Cairnish word in it means. For some, you will be asked about your understanding of what it means within the sentence. At the end of the block, you will be tested on these words. Press SPACE to begin.</p>`,
         choices: [' '],
         data: { block: b + 1, block_phase: 'start' }
       });
