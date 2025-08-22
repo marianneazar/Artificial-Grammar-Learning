@@ -533,10 +533,14 @@ fetch(selectedCSV)
       const blockGenTrials = jsPsych.randomization.shuffle(blockGenRows)
         .map(r => makeTrialFromRow(r, { blockIndex: b + 1, phase: 'generalization' }));
 
+      // --- Merge comprehension + generalization, then shuffle ---
+      const blockTestTrials = jsPsych.randomization.shuffle(
+        blockCompTrials.concat(blockGenTrials)
+      );
+
       // --- Push TRAIN, COMP, GEN to timeline (in that order) ---
       timeline.push({ timeline: blockTrainTrials });
-      timeline.push({ timeline: blockCompTrials });
-      timeline.push({ timeline: blockGenTrials });
+      timeline.push({ timeline: blockTestTrials });
 
       // --- RECAP for this block: ask P/O for each word in the block ---
       const recapTrials = jsPsych.randomization.shuffle(blockWords).map((w, i) => {
