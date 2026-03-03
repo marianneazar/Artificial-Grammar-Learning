@@ -88,10 +88,10 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyText,
   questions: [{
-    prompt: "Please enter Prolific ID here, if applicable (or write NA).",
+    prompt: "Please enter: Are you are Prolific participant? (Yes or No)",
     name: "prolificid",
     required: true,
-    placeholder: "e.g. 45gfsx52"
+    placeholder: "e.g. No"
   }],
   on_finish: function(data) {
     jsPsych.data.addProperties({
